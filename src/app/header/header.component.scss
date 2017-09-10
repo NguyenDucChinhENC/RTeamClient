@@ -1,0 +1,47 @@
+$dark_blue: #00547E;
+$light_blue: #04A3ED;
+
+.container-fluid {
+  margin: 8px 0;
+}
+
+.menu {
+  background-color: $dark_blue;
+  border-bottom: 4px solid $light_blue;
+  width:100%;
+  height: auto;
+  padding: 0 10px;
+  position: fixed;
+  margin: 0px;
+  z-index: 1;
+  opacity: 1;
+}
+
+.menu  .navbar-nav > .active > a {
+  background-color : $light_blue;
+  color: white;
+  font-weight: bold;
+}
+
+.menu  .navbar-nav >  li >  a {
+  font-size: 13px;
+  color: white;
+  padding: 10px 35px;
+}
+.menu  .navbar-nav >  li >  a:hover {
+  background-color: $light_blue;
+}
+
+.navbar-header > a {
+  font-family: 'Ubuntu Condensed', sans-serif;
+  text-decoration: none;
+  color: white;
+  font-size: 25px;
+  padding: 5px 30px;
+  margin: 10px 0 0 0;
+}
+
+.navbar-header > a:hover {
+  text-decoration: none;
+  color: $light_blue;
+}
