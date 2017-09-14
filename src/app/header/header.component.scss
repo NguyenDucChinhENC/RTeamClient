@@ -45,3 +45,11 @@ $light_blue: #04A3ED;
   text-decoration: none;
   color: $light_blue;
 }
+
+body{
+  padding:0;
+}
+
+.show-on-hover:hover > ul.dropdown-menu {
+  display: block;    
+}
