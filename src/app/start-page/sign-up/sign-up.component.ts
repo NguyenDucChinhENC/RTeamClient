@@ -1,16 +1,24 @@
 import { Component, OnInit } from '@angular/core';
 import { SignUpService } from './sign-up.service';
+import { LoginService } from '../login.service';
 import * as $ from 'jquery';
 
 @Component({
   selector: 'app-sign-up',
   templateUrl: './sign-up.component.html',
   styleUrls: ['./sign-up.component.css'],
-  providers: [SignUpService],
+  providers: [SignUpService, LoginService],
 })
 export class SignUpComponent implements OnInit {
 
-  constructor(private signupService: SignUpService) { }
+  private User: any = {};
+  private User_info: any = {};
+
+
+  constructor(
+    private signupService: SignUpService,
+    private loginService: LoginService,
+  ) { }
 
   ngOnInit() {
     $(document).ready(function() {
@@ -59,17 +67,42 @@ export class SignUpComponent implements OnInit {
 
   onSignupSubmit(value: any) {
     this.signupService.signup(value).subscribe(
-      response => this.onNext(response),
+      response => this.onNext(response,value),
       response => this.onError(response),
     )
   }
 
-  onNext(response) {
+  onNext(response, value: any) {
     console.log("ok");
+    this.signin(value);
   }
 
   onError(response) {
     console.log("dm");
+  }
+
+  signin(value: any){
+    console.log(value);
+    // this.loginService.login(value).subscribe(
+    //   response => this.signinSuccess(response),
+    //   response => this.signinError(),
+    // )
+  }
+
+  signinSuccess(response){
+    if (response.status === 200 ){
+      this.User = JSON.parse(response._body);
+      this.User_info = this.User.data.user_info;
+      if (localStorage.currentUser){
+        localStorage.removeItem('currentUser');
+      }
+      localStorage.setItem('currentUser', JSON.stringify(this.User_info));
+      window.location.reload();
+    }
+  }
+
+  signinError(){
+    console.log("dmm");
   }
 
 }
