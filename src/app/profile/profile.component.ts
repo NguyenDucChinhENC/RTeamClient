@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ProfileService } from './profile.service';
+import { User } from './user';
+
 
 
 @Component({
@@ -12,18 +14,18 @@ import { ProfileService } from './profile.service';
 export class ProfileComponent implements OnInit {
 
   user_id: any;
-  currentUser: any;
+  public currentUser: any = {};
 
-  constructor(private route: ActivatedRoute, private profileService: ProfileService) { }
+  constructor(
+    private route: ActivatedRoute,
+    private router: Router,
+    private profileService: ProfileService,
+  ) { }
 
   ngOnInit() {
     this.getDataUser();
-
     $(document).ready(function(e) {
-      
-
     $('.form').find('input, textarea').on('keyup blur focus', function (e) {
-
     var $this = $(this),
         label = $this.prev('label');
 
@@ -40,7 +42,6 @@ export class ProfileComponent implements OnInit {
           label.removeClass('highlight');   
         }   
       } else if (e.type === 'focus') {
-        
         if( $this.val() === '' ) {
           label.removeClass('highlight'); 
         } 
@@ -48,19 +49,12 @@ export class ProfileComponent implements OnInit {
           label.addClass('highlight');
         }
       }
-
     });
-
     $('.tab a').on('click', function (e) {
-
     e.preventDefault();
-
     $(this).parent().addClass('active');
     $(this).parent().siblings().removeClass('active');
-
-
     });
-    //canvas off js//
     $('#menu_icon').click(function(){
       if($("#content_details").hasClass('drop_menu'))
       {
@@ -69,19 +63,10 @@ export class ProfileComponent implements OnInit {
       else{
         $("#content_details").addClass('drop_menu').removeClass('drop_menu1');
         }
-
-
     });
-
-    //search box js//
-
-
       $("#flip").click(function(){
           $("#panel").slideToggle("5000");
       });
-
-    // sticky js//
-
     $(window).scroll(function(){
       if ($(window).scrollTop() >= 500) {
         $('nav').addClass('stick');
@@ -90,20 +75,29 @@ export class ProfileComponent implements OnInit {
         $('nav').removeClass('stick');
       }
     });
-
     });
   }
 
 getDataUser(){
   this.user_id = +this.route.snapshot.params['id'];
   this.profileService.getInfoUser(this.user_id).subscribe(
-    response => this.onNextGetInfo(response)
+    (user) => {
+      this.currentUser = user;
+      console.log(this.currentUser.typeof)
+    },
+    response => this.onError,
   )
 }
 
 onNextGetInfo(response){
-  this.currentUser = response.data.user;
-  console.log(this.currentUser);
+  const data = response.data.user;
+  // this.currentUser = new User(data.id, data.name, data.email, data.avatar, data.number_phone,
+  //   data.birthday, data.address, data.country, data.id_number, data.link_facebook, data.workplace);
+  
+}
+
+onError() {
+  this.router.navigate(['']);
 }
 
 }

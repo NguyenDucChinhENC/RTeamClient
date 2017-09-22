@@ -1,8 +1,9 @@
-import { Injectable } from '@angular/core';
-import { Http, RequestOptions } from '@angular/http';
-import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
+import { Injectable } from '@angular/core';
+import { Http, Response, RequestOptions } from '@angular/http';
+import { Observable } from 'rxjs/Observable';
 import { URL} from '../app.routes';
+import { User } from './user'
 
 @Injectable()
 export class ProfileService {
@@ -11,8 +12,16 @@ export class ProfileService {
     this.apiURL = URL + 'api/users/';
   }
 
-  getInfoUser(token: any): Observable<any> {
-    console.log(this.apiURL + token);
-    return this.http.get(this.apiURL + token).map(response => response.json());
+  getInfoUser(id: any): Observable<any> {
+    console.log(this.apiURL + id);
+    return this.http.get(this.apiURL + id).map((response: Response) => {
+    return <User>response.json().data.user});
+  }
+
+  updateUser(value: any, id: any, token: any): Observable<any> {
+    const headers: any = {'RT-AUTH-TOKEN': token};
+    const options = new RequestOptions({headers: headers});
+    console.log(value);
+    return this.http.patch(this.apiURL + id, value, options );
   }
 }
