@@ -1,0 +1,74 @@
+<br><br><br><br>
+    <div class="container">
+      <div class="row setup-content" id="step-1">
+        <div class="col-xs-12">
+          <div class="col-md-12 well text-center">
+              <form class="form-horizontal">
+                <fieldset>
+                <legend>UPDATING INFORMATION USER</legend>
+                <form #updateForm = "ngForm">
+                  <div ngModelGroup = "user">
+                    <div class="form-group">
+                      <label class="col-md-4 control-label" for="pname">NAME {{currentUser.name}}</label>  
+                      <div class="col-md-4">
+                      <input id="name" name="name" type="text" ng-value="currentUser.name" value="{{currentUser.name}}" class="form-control input-md" ngModel/>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label class="col-md-4 control-label" for="PTYPE">BIRTHDAY</label>
+                      <div class="col-md-4">
+                        <input id="birthday" name="birthday" type="date" value="{{currentUser.birthday}}" class="form-control input-md" ngModel/>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label class="col-md-4 control-label" for="DVFCZ">ID NUMBER</label>  
+                      <div class="col-md-4">
+                      <input id="id_number" name="id_number" type="text" value="{{currentUser.id_number}}" class="form-control input-md" ngModel/>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label class="col-md-4 control-label" for="KKKO">NUMBER PHONE</label>  
+                      <div class="col-md-4">
+                      <input id="number_phone" name="number_phone" type="number" value="{{currentUser.number_phone}}" class="form-control input-md" ngModel/>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label class="col-md-4 control-label" for="CCC">ADDRESS</label>  
+                      <div class="col-md-4">
+                      <input id="address" name="address" type="text" value="{{currentUser.address}}" class="form-control input-md" ngModel/>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label class="col-md-4 control-label" for="YIHK">COUNTRY</label>  
+                      <div class="col-md-4">
+                      <input id="country" name="country" type="text" value="{{currentUser.country}}" class="form-control input-md" ngModel/>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label class="col-md-4 control-label" for="BJKSS">WORK PLACE</label>  
+                      <div class="col-md-4">
+                      <input id="workplance" name="workplance" type="text" value="{{currentUser.workplance}}" class="form-control input-md" ngModel/>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label class="col-md-4 control-label" for="BJKSS">LINK FACEBOOK</label>  
+                      <div class="col-md-4">
+                      <input id="link_facebook" name="link_facebook" type="text" value="{{currentUser.link_facebook}}" class="form-control input-md" ngModel/>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label class="col-md-4 control-label" for="button1idFFF"></label>
+                      <div class="col-md-8">
+                        <button id="button1idFFF" name="button1idFFF" class="btn btn-success" (click)="onClickUpdate(updateForm.value)">UPDATE</button>
+                        <button id="button2id" name="button2id" class="btn btn-danger">CANCEL</button>
+                      </div>
+                    </div>
+                  </div>
+                </form>
+                </fieldset>
+                </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
