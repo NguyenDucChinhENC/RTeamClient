@@ -17,6 +17,7 @@ import { StartPageComponent } from './start-page/start-page.component';
 import { SignUpComponent } from './start-page/sign-up/sign-up.component';
 import { ProfileComponent } from './profile/profile.component';
 import { UpdateUserComponent } from './profile/update-user/update-user.component';
+import { LoggedInGuard } from './logged-in.guard';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,7 @@ import { UpdateUserComponent } from './profile/update-user/update-user.component
     MdCardModule,
     MdButtonModule,
   ],
-  providers: [SignUpComponent],
+  providers: [SignUpComponent, LoggedInGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
