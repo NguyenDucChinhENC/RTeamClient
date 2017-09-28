@@ -1,0 +1,23 @@
+<!-- ********* <3 ********* TWO ********* <3 ********* -->
+<div class="container">
+  <div class="col-md-10 col-md-offset-1">
+  <ul class="two">
+  <li class="transition list center" *ngFor="let group of list_groups">
+    <div class="wrapper"> <img class="transition" src="http://dooreight.com/codepen/people/img_01.png">
+      <ul class="social">
+        <li>Young artist from Barcelona. She hates Comic Sans. <br>
+          Find her on:</li>
+        <li class="transition"><a href="https://www.facebook.com"><img src="http://dooreight.com/codepen/people/twitter.svg"></a></li>
+        <li class="transition"><a href="#"><img src="http://dooreight.com/codepen/people/behance.svg"></a></li>
+        <li class="transition"><a href="#"><img src="http://dooreight.com/codepen/people/facebook.svg"></a></li>
+        <li class="transition"><a href="#"><img src="http://dooreight.com/codepen/people/skype.svg"></a></li>
+      </ul>
+      <span class="transition"  [routerLink]="['/groups/', group.id]">
+      <h3>{{group.name}} <em>CEO & Founder</em></h3>
+      <i>more</i> </span> </div>
+  </li>
+</ul>
+</div>
+</div>
+<!-- ********* <3 ********* THREE ********* <3 ********* -->
+
