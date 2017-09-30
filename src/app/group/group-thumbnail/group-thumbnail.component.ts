@@ -1,6 +1,19 @@
 import { Component, OnInit } from '@angular/core';
-import { GroupService } from '../group.service';
+import { GroupService } from '../group.service'
 import { ActivatedRoute , Router } from '@angular/router';
+
+declare const $: any;
+declare interface ButtonMember {
+    path: any;
+    title: string;
+    action: any;
+}
+export const MemberButton: ButtonMember[] = [
+    { path: '', title: 'Joined', action: 'Leave Group'},
+    { path: '', title: 'Pending', action: 'Cancel Request'},
+    { path: "joinGroup()", title: 'Join Group', action: 'Join Group'}
+];
+
 
 @Component({
   selector: 'app-group-thumbnail',
@@ -13,11 +26,15 @@ export class GroupThumbnailComponent implements OnInit {
   id_group: number;
   current_user: any = {};
   info_group: any = {};
+  member_button: any = {};
+  status_user: number = 3;
 
   constructor(
     private groupSevice: GroupService,
     private route: ActivatedRoute,
-    private router: Router) { }
+
+    private router: Router
+    ) { }
 
   ngOnInit() {
     this.getGroupThumbnail();
@@ -33,9 +50,33 @@ export class GroupThumbnailComponent implements OnInit {
 
   onSuccessGetGroupInfo(response){
     this.info_group = response.data.group;
+    if (response.data.membered == true){
+      this.member_button = MemberButton.filter(memberButton => memberButton)[0];
+      this.status_user =0;
+    }else {
+      if (response.data.accept == true){
+        this.member_button = MemberButton.filter(memberButton => memberButton)[1];
+        this.status_user =1;
+      } else {
+        this.member_button = MemberButton.filter(memberButton => memberButton)[2];
+        this.status_user =2;
+      }
+    }
+    console.log(this.member_button)
   }
 
   onErrorGetGroupInfo(){
     this.router.navigate(['/']);
+  }
+
+  action() {
+    if (this.status_user == 2)
+    this.groupSevice.joinGroup(this.current_user.authentication_token,this.id_group).
+      subscribe(response => this.onJoinGroupSuccess(response))
+  }
+
+  onJoinGroupSuccess(response){
+    this.getGroupThumbnail();
+    console.log("want join");
   }
 }

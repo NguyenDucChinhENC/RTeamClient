@@ -10,7 +10,7 @@ import { GroupService } from '../group.service'
 export class GroupListComponent implements OnInit {
 
   current_user: any = {};
-  list_groups: any = {};
+  list_groups: any[];
 
   constructor(private groupService: GroupService) { }
 
