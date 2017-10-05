@@ -1,0 +1,52 @@
+<div class="main-content">
+  <div class="col-md-6">
+    <div class="box box-primary">
+      <div class="box-header with-border">
+        <h3 class="box-title">New Group</h3>
+      </div>
+      <form #newGroupForm="ngForm">
+          <div ngModelGroup = "group">
+        <div class="box-body">
+          <div class="form-group">
+            <label for="exampleInputEmail1">Name group</label>
+            <input type="name" class="form-control" name="name" placeholder="Name Group" ngModel/>
+          </div>
+          <div class="form-group">
+            <label>Description</label>
+            <textarea class="form-control" rows="3" name="description" placeholder="Description" ngModel></textarea>
+          </div>
+          <div class=" col-xs-6">
+            <h5>Public</h5>
+            <a class="btn btn-default btn-select">
+                <input type="hidden" class="btn-select-input" [(ngModel)]="group" id="" name="public_status" value="" NgModel/>
+                <span class="btn-select-value">Public</span>
+                <span class='btn-select-arrow glyphicon glyphicon-chevron-down'></span>
+                <ul>
+                    <li class="selected" [value]="true">True</li>
+                    <li [value]="false">False</li>
+                </ul>
+            </a>
+        </div>
+        <div class="form-group col-xs-6">
+          <h5>Allow search</h5>
+          <a class="btn btn-default btn-select">
+              <input type="hidden" class="btn-select-input" id="" name="enable_search" value="" NgModel/>
+              <span class="btn-select-value">Allow search</span>
+              <span class='btn-select-arrow glyphicon glyphicon-chevron-down'></span>
+              <ul>
+                  <li class="selected">True</li>
+                  <li>False</li>
+              </ul>
+          </a>
+      </div>
+      <br>
+        </div>
+        <!-- /.box-body -->
+        <div class="box-footer">
+          <button type="submit" class="btn btn-primary" (click)="onClickButtonNewGroup(newGroupForm.value)">Submit</button>
+        </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
