@@ -72,6 +72,8 @@ import { UpgradeComponent } from './upgrade/upgrade.component';
 import { GroupListComponent } from './group/group-list/group-list.component';
 import { GroupThumbnailComponent } from './group/group-thumbnail/group-thumbnail.component';
 import { StartPageComponent } from './start-page/start-page.component';
+import { GroupManageComponent } from './group/group-manage/group-manage.component';
+import { NewGroupComponent } from './group/new-group/new-group.component';
 
 @NgModule({
   declarations: [
@@ -86,7 +88,9 @@ import { StartPageComponent } from './start-page/start-page.component';
     UpgradeComponent,
     GroupListComponent,
     GroupThumbnailComponent,
-    StartPageComponent
+    StartPageComponent,
+    GroupManageComponent,
+    NewGroupComponent
   ],
   imports: [
     BrowserModule,

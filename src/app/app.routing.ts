@@ -13,7 +13,9 @@ import { NotificationsComponent } from './notifications/notifications.component'
 import { UpgradeComponent } from './upgrade/upgrade.component';
 import { GroupListComponent } from './group/group-list/group-list.component';
 import { GroupThumbnailComponent } from './group/group-thumbnail/group-thumbnail.component';
+import { GroupManageComponent } from './group/group-manage/group-manage.component'
 import { StartPageComponent } from './start-page/start-page.component';
+import { NewGroupComponent } from './group/new-group/new-group.component';
 
 const routes: Routes =[
     { path: 'home',      component: HomeComponent },
@@ -26,8 +28,11 @@ const routes: Routes =[
     { path: 'upgrade',        component: UpgradeComponent },
     { path: '',          redirectTo: 'dashboard', pathMatch: 'full' },
     { path: 'groups', component: GroupListComponent},
-    {path: 'signin', component: StartPageComponent},
-    {path: 'groups/:id', component: GroupThumbnailComponent}
+    { path: 'signin', component: StartPageComponent},
+    { path: 'groups/:id', component: GroupThumbnailComponent},
+    { path: 'group/new', component: NewGroupComponent },
+    { path: 'groups/admin/:id', component: GroupManageComponent},
+
 
 ];
 
