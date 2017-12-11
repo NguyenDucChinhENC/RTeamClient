@@ -55,6 +55,7 @@ export class SidebarComponent implements OnInit {
   }
 
   onError(response){
-    console.log("dm");
+    localStorage.removeItem('currentUser');
+    window.location.reload()
   }
 }

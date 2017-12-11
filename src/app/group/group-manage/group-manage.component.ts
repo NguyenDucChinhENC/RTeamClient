@@ -55,7 +55,14 @@ export class GroupManageComponent implements OnInit {
   }
 
   onAcceptSuccess(response){
-    console.log(this.member_waiting);
+    console.log(response.data.user);
+    for ( var i = 0; i < this.member_waiting.length; i++){
+      if (this.member_waiting[i].member.id == response.data.user.member.id){
+        this.member_waiting.splice(i,1)
+        this.list_membered.push(response.data.user)
+        console.log(i + "hihi")
+      }
+    }
   }
 
   onDeleteGroupButton(){
@@ -65,6 +72,11 @@ export class GroupManageComponent implements OnInit {
 
   onDeleteGroupSuccess(response){
     console.log("delete group success");
+  }
+
+  onDeleteMember(value: any){
+    console.log("ok");
+    this.groupSevice.adminDeleteMember(this.current_user.authentication_token, value).subscribe(response => this.onDeleteGroupSuccess(response))
   }
 
 }

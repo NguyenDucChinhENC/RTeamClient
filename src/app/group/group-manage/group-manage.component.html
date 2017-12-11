@@ -96,11 +96,11 @@
                     <div class="pull-right">
                         <div class="row">
                             <div class="col-md-12">
-                                <a class="btn btn-default btn-block">Delete</a>  
+                                <a class="btn btn-default btn-block" (click)="onDeleteMember(member.id)">Delete</a>  
                             </div>
                         </div>
                       </div>
-                      <div class="member-waiting" routerLink="/user/{{member.id}}"><h5>{{member.name}}</h5></div>
+                      <div class="member-waiting" routerLink="/user/{{member.member.id}}"><h5>{{member.member.name}}</h5></div>
                 </div>
               </div>
       </div>

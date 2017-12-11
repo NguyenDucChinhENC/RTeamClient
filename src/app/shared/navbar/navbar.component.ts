@@ -2,7 +2,7 @@ import { Component, OnInit, ElementRef } from '@angular/core';
 import { ROUTES } from '../../sidebar/sidebar.component';
 import {Location, LocationStrategy, PathLocationStrategy} from '@angular/common';
 import { RouterOutlet } from '@angular/router';
-import { LogoutService } from './logout.service'
+import { LogoutService } from './logout.service';
 
 @Component({
     // moduleId: module.id,
@@ -80,6 +80,11 @@ export class NavbarComponent implements OnInit{
     }
   
     onError(response){
-      console.log("dm");
+        localStorage.removeItem('currentUser');
+        window.location.reload()
+    }
+
+    back(){
+      this.location.back()
     }
 }

@@ -74,6 +74,14 @@ import { GroupThumbnailComponent } from './group/group-thumbnail/group-thumbnail
 import { StartPageComponent } from './start-page/start-page.component';
 import { GroupManageComponent } from './group/group-manage/group-manage.component';
 import { NewGroupComponent } from './group/new-group/new-group.component';
+import { LoggedInGuard } from './logged-in.guard';
+import { NewEventComponent } from './event/new-event/new-event.component';
+import { DatepickerModule } from 'angular-mat-datepicker';
+import { EditEventComponent } from './event/edit-event/edit-event.component';
+import { DialogDeleteEvent } from './event/edit-event/edit-event.component';
+import { MatDialogModule } from '@angular/material';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { SignUpComponent } from './start-page/sign-up/sign-up.component';
 
 @NgModule({
   declarations: [
@@ -90,7 +98,11 @@ import { NewGroupComponent } from './group/new-group/new-group.component';
     GroupThumbnailComponent,
     StartPageComponent,
     GroupManageComponent,
-    NewGroupComponent
+    NewGroupComponent,
+    NewEventComponent,
+    EditEventComponent,
+    DialogDeleteEvent,
+    SignUpComponent
   ],
   imports: [
     BrowserModule,
@@ -99,11 +111,17 @@ import { NewGroupComponent } from './group/new-group/new-group.component';
     NavbarModule,
     FooterModule,
     SidebarModule,
+    BrowserAnimationsModule,
     RouterModule,
     AppRoutingModule,
-    LbdModule
+    LbdModule,
+    DatepickerModule,
+    MatDialogModule
   ],
-  providers: [],
+  entryComponents: [
+    DialogDeleteEvent
+  ],
+  providers: [LoggedInGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

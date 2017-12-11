@@ -1,59 +1,176 @@
-<div class="main-content">
-  <div class="card card-group">
-    <div class="image"> <img src="https://ununsplash.imgix.net/photo-1431578500526-4d9613015464?fit=crop&fm=jpg&h=300&q=75&w=400" alt="..." /> </div>
-    <div class="content">
-      <div class="author">
-        <div class="col-md-4 col-md-offset-10">
-          <a class="dropdown">
-            <h5 class="title dropdown-toggle" data-toggle="dropdown">{{member_button.title}}<b class="caret"></b><br /></h5>
-            <ul class="dropdown-menu">
-              <br>
-              <li><a (click)="action()">{{member_button.action}}</a>
-              </li>
-            </ul>
-          </a>
-        </div>
-      </div>
-      <div class="description text-center">
-        <div class="text-center">
-          <!-- <button href="#" class="btn btn-simple"><i class="fa fa-facebook-square"></i> </button>
-							<button href="#" class="btn btn-simple"><i class="fa fa-twitter"></i> </button>
-							<button href="#" class="btn btn-simple"><i class="fa fa-google-plus-square"></i> </button> -->
-        </div>
-      </div>
+<!DOCTYPE html>
+<html >
+<head>
+  <meta charset="UTF-8">
+  <title>Vertical Timeline</title>
+  <link href="https://fonts.googleapis.com/css?family=Roboto:100i,300,400,500,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Allura" rel="stylesheet">
+    <link rel="stylesheet" href="http://fontawesome.io/assets/font-awesome/css/font-awesome.css">
+  <link rel='stylesheet prefetch' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css'>
+
+  
+</head>
+
+<body>
+  <header>
+    <div class="container text-center">
+      <h1>{{info_group.name}}</h1>
+      <a class="dropdown">
+          <h4 class="title dropdown-toggle" data-toggle="dropdown">{{member_button.title}}<b class="caret"></b><br /></h4>
+          <ul class="dropdown-menu">
+                <li *ngIf="is_admin"><a>Manage Group</a></li>
+            <br>
+            <li><a (click)="action()">{{member_button.action}}</a>
+            </li>
+          </ul>
+        </a>
+      <p>Sava Lazic</p>
     </div>
-  </div>
-  <div class="jumbotron jumbotron-fluid"> </div>
-  <div class="spacer20">
-    <div class="col-md-9 text-left">
-      <h1>hihi</h1> </div>
-    <div class="col-md-3 text-left">
-      <h2 class="display-3">{{info_group.name}}</h2>
-      <p>This is a modified jumbotron that occupies the entire horizontal space of its parent.</p>
-      <h2>Quick Links</h2>
-      <div class="btn-group btn-group-vertical btn-block"> <a href="#" class="btn btn-default">Apple</a> <a href="#" class="btn btn-default">Samsung</a> <a href="#" class="btn btn-default">Sony</a> <a href="#" class="btn btn-default">Apple</a> <a href="#" class="btn btn-default">Samsung</a> <a href="#" class="btn btn-default">Sony</a> </div>
-      <hr>
-      <ul>
-        <li><a href="#"><span> </span>tortor sit amet molestie fringilla</a>
-        </li>
-        <li><a href="#"><span> </span>packages and web page editors</a>
-        </li>
-        <li><a href="#"><span> </span>desktop publishing packages</a>
-        </li>
-        <li><a href="#"><span> </span>web page editors now use</a>
-        </li>
-        <li><a href="#"><span> </span>opposed to using Many desktop</a>
-        </li>
-        <li><a href="#"><span> </span>Many desktop publishing</a>
-        </li>
-        <li><a href="#"><span> </span>packages and web page editors</a>
-        </li>
-        <li><a href="#"><span> </span>desktop publishing packages</a>
-        </li>
-        <li><a href="#"><span> </span>web page editors now use</a>
-        </li>
-      </ul>
-      <div class="well-sm"> <img src="http://placehold.it/350X350" class="img-responsive"> </div>
-    </div>
-  </div>
-</div>
+  </header>
+  <div class="container">
+      <div class="row group-content">
+                    <div class="col-md-11">
+                        <div class="bs-calltoaction bs-calltoaction-default">
+                            <div class="row">
+                                <div class="col-md-9 cta-contents">
+                                    <h2 class="cta-title">Create new Event</h2>
+                                    <!-- <div class="cta-desc">
+                                        <p>Describe the action here.</p>
+                                        <p>Describe the action here.</p>
+                                        <p>Describe the action here.</p>
+                                    </div> -->
+                                </div>
+                                <div class="col-md-3 cta-button">
+                                    <a href="#" class="btn btn-lg btn-block btn-primary">Create Event!</a>
+                                </div>
+                             </div>
+                        </div>
+                    <div class="widget no-padding blank">
+                      <div class="timeline-sec">
+                        <ul>
+                          <li *ngFor="let event of events">
+                            <div class="timeline">
+                              <div class="user-timeline">
+                                <span><img src="http://www.foreclosure-support.com/images/johnny-depp.jpg" alt=""></span>
+                              </div>
+                              <div class="timeline-detail">
+                                <div class="timeline-head">
+                                  <h3>{{event.name}}<span><i class="fa fa-clock-o"></i> created {{event.time_ago}} ago</span><i *ngIf="event.admin" class="red">Admin</i></h3>
+                                
+                                </div>
+                                <div class="timeline-content">
+                                  <p>{{event.infor}}</p>
+
+                                  <div data-toggle="buttons" class="btn-group btn-group-sm">
+                                    <label class="btn btn-default">
+                                      <input type="radio" checked="" name="options"><i class="fa fa-comments"></i> Reply
+                                    </label>
+                                    <label class="btn btn-default">
+                                      <input type="radio" name="options"> <i class="fa fa-thumbs-o-up"></i> Like
+                                    </label>
+                                  </div>
+                                  <form class="post-reply ng-pristine ng-valid">
+                                    <textarea placeholder="Write your comment"></textarea>
+                                      <i class="fa fa-comments"></i>
+                                  </form>
+                                </div>
+                              </div>
+                            </div>
+                          </li>
+                          
+                          <li>
+                            <div class="timeline">
+                              <div class="user-timeline">
+                                <span><img src="http://www.foreclosure-support.com/images/johnny-depp.jpg" alt=""></span>
+                              </div>
+                              <div class="timeline-detail">
+                                <div class="timeline-head">
+                                  <h3>Haseeb Iftikhar<span><i class="fa fa-clock-o"></i> 2 hours ago</span><i class="purple">Mod</i></h3>
+                                  <div class="social-share">
+                                    <a title=""><i class="ti-sharethis"></i></a>
+                                    <ul class="social-btns">
+                                      <li><a title="Facebook" data-toggle="tooltip" data-placement="left" href="#"><i class="ti-facebook"></i></a></li>
+                                      <li><a title="Google" data-toggle="tooltip" data-placement="left" href="#"><i class="ti-google"></i></a></li>
+                                      <li><a title="Twitter" data-toggle="tooltip" data-placement="left" href="#"><i class="ti-twitter"></i></a></li>
+                                    </ul>
+                                  </div>
+                                </div>
+                                <div class="timeline-content">
+                                  <p>at <a href="#" title="">Khana Zidi</a> Jonathan DOe Uploaded 4 new photos.</p>
+                                  <div class="timeline-gallery">
+                                    <ul>
+                                      <li><a title="Gallery Image" class="lightbox" href="javascript:"><i class="fa fa-search-plus"></i><img src="http://www.foreclosure-support.com/images/johnny-depp.jpg" alt=""></a></li>
+                                      <!-- <li><a title="Gallery Image" class="lightbox" href="javascript:"><i class="fa fa-search-plus"></i><img src="http://images.starpulse.com/pictures/2013/08/08/previews/Matt%20Damon-MTO-009587.jpg" alt=""></a></li> -->
+                                      <!-- <li><a title="Gallery Image" class="lightbox" href="javascript:"><i class="fa fa-search-plus"></i><img src="http://images.boomsbeat.com/data/images/full/32034/422817_original-jpg.jpg" alt=""></a></li> -->
+                                      <li><a title="Gallery Image" class="lightbox" href="javascript:"><i class="fa fa-search-plus"></i><img src="http://img2.timeinc.net/people/i/2006/celebdatabase/denzelwashington/denzel_washington1_300_400.jpg" alt=""></a></li>
+                                    </ul>
+                                  </div>
+                                <div data-toggle="buttons" class="btn-group btn-group-sm">
+                                      <label class="btn btn-default">
+                                      <input type="radio" checked="" name="options"><i class="fa fa-comments"></i> Reply
+                                    </label>
+                                    <label class="btn btn-default">
+                                      <input type="radio" name="options"> <i class="fa fa-thumbs-o-up"></i> Like
+                                    </label>
+                                  </div>
+                                  <form class="post-reply ng-pristine ng-valid">
+                                    <textarea placeholder="Write your comment"></textarea>
+                                        <i class="fa fa-comments"></i>
+                                  </form>
+                                </div>
+                              </div>
+                            </div>
+                          </li>
+                          
+                          <li>
+                            <div class="timeline">
+                              <div class="user-timeline">
+                                <span><img src="http://www.foreclosure-support.com/images/johnny-depp.jpg" alt=""></span>
+                              </div>
+                              <div class="timeline-detail">
+                                <div class="timeline-head">
+                                  <h3>Hussain Zaidi<span><i class="fa fa-clock-o"></i> 4 min ago</span><i class="green">User</i></h3>
+                                  <div class="social-share">
+                                    <a title=""><i class="ti-sharethis"></i></a>
+                                    <ul class="social-btns">
+                                      <li><a title="Facebook" data-toggle="tooltip" data-placement="left" href="#"><i class="ti-facebook"></i></a></li>
+                                      <li><a title="Google" data-toggle="tooltip" data-placement="left" href="#"><i class="ti-google"></i></a></li>
+                                      <li><a title="Twitter" data-toggle="tooltip" data-placement="left" href="#"><i class="ti-twitter"></i></a></li>
+                                    </ul>
+                                  </div>
+                                </div>
+                                <div class="timeline-content">
+                                  <p>Set it as the font <a href="#" title="">John Doe</a> in your applition, and copy and paste the icons. Print this page to PDF for te completet of vectors. Or to use othe the Font Aweo Awesome</p>
+                                  <div data-toggle="buttons" class="btn-group btn-group-sm">
+                                      <label class="btn btn-default">
+                                      <input type="radio" checked="" name="options"><i class="fa fa-comments"></i> Reply
+                                    </label>
+                                    <label class="btn btn-default">
+                                      <input type="radio" name="options"> <i class="fa fa-thumbs-o-up"></i> Like
+                                    </label>
+                                  </div>
+                                  <form class="post-reply ng-pristine ng-valid">
+                                    <textarea placeholder="Write your comment"></textarea>
+                                    <i class="fa fa-comments"></i>
+                                  </form>
+                                </div>
+                              </div>
+                            </div>
+                          </li>
+      
+                        </ul>
+                      </div>
+                            
+                    </div>
+                  </div>
+                </div>
+      </div>
+
+  
+  <script src='https://code.jquery.com/jquery-2.2.4.min.js'></script>
+<script src='https://cdn.jsdelivr.net/scrollreveal.js/3.3.1/scrollreveal.min.js'></script>
+
+
+</body>
+</html>
+

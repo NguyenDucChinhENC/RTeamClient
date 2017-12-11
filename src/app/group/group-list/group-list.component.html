@@ -19,8 +19,7 @@
 </ul>
 </div>
 </div> -->
-<!-- ********* <3 ********* THREE ********* <3 ********* -->
-<div class="main-content">
+<!-- <div class="main-content">
     <div class="col-md-3 col-sm-6 col-xs-12">
         <div class="info-box" [routerLink]="['/group/new']">
           <span class="info-box-icon bg-aqua"><i class="fa fa-plus" aria-hidden="true"></i></span>
@@ -29,28 +28,118 @@
             <span class="info-box-text">New</span>
             <span class="info-box-number">Group<small></small></span>
           </div>
-          <!-- /.info-box-content -->
         </div>
-        <!-- /.info-box -->
       </div>
       <hr>
-  <div class="col-md-4 col-sm-6" *ngFor="let group of list_groups">
-    <div class="card-container manual-flip">
-      <div class="card">
-        <div class="front">
-          <div class="cover"> <img src="https://scontent.fhan4-1.fna.fbcdn.net/v/t1.0-9/22045737_1954804801398014_6756773244318478973_n.jpg?oh=b1485690e17358cedbce36abbd23ab81&oe=5A3F645B" /> </div>
-          <div class="content">
-            <div class="main">
-              <h3 class="name">{{group.name}}</h3>
-              <p class="profession">Web Developer</p>
-              <p class="text-center">"Lamborghini Mercy
-                <br>Your chick she so thirsty</p>
+      
+      <div class="col-md-12">
+        <div class="box box-primary">
+          <div class="box-header with-border">
+            <h3 class="box-title">Your Groups</h3>
+          </div>
+          <div class="col-md-6 col-sm-6" *ngFor="let group of list_groups">
+            <div class="media">
+              <a class="pull-left">
+                  <img class="media-object dp img-circle" src="https://d30zbujsp7ao6j.cloudfront.net/wp-content/uploads/2017/07/unnamed.png" style="width: 100px;height:100px;">
+              </a>
+              <div class="media-body" [routerLink]="['/groups/', group.id]">
+                  <h4 class="media-heading">{{group.name}}<small> India</small></h4>
+                  <h5>Software Developer at <a href="http://gridle.in">Gridle.in</a></h5>
+                  <hr style="margin:8px auto"> -->
+  
+                  <!-- <span class="label label-default">HTML5/CSS3</span>
+                  <span class="label label-default">jQuery</span>
+                  <span class="label label-info">CakePHP</span>
+                  <span class="label label-default">Android</span> -->
+              <!-- </div>
+          </div>
+          </div>
+          
+        </div>
+        </div>
+</div> -->
+<!-- <div class="container-fluid fh5co-cards">
+  <section id="wedo">
+      <div class="row">
+        <div class="head_title text-center wow fadeIn" data-wow-duration="1.5s">
+          <h2>WHAT WE DO</h2>
+          <div class="separetor"></div>
+          <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry been the industry's standard dummy text </p>
+        </div>
+        <div class="wedo_content_area">
+          
+          <div class="col-md-6 col-sm-6 col-xs-12">
+            <div class="single_wedo wow fadeIn" data-wow-duration="1s">
+              <div class="single_right_text">
+                <h4>UI / UX DESIGN</h4>
+                <div class="separetor2"></div>
+                <p>Lorem Ipsum is simply dummy text thprinting andthe industry's standard dummy text lorem Ipsum is simply dummy</p>
+              </div>
             </div>
-            <div class="footer" [routerLink]="['/groups/', group.id]">
-              <button class="btn btn-simple" onclick="rotateCard(this)"> <i class="fa fa-mail-forward"></i> Open group </button>
+          </div>
+          <div class="col-md-6 col-sm-6 col-xs-12">
+            <div class="single_wedo wow fadeIn" data-wow-duration="1s">
+              <div class="single_right_text">
+                <h4>UI / UX DESIGN</h4>
+                <div class="separetor2"></div>
+                <p>Lorem Ipsum is simply dummy text thprinting andthe industry's standard dummy text lorem Ipsum is simply dummy</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-sm-6 col-xs-12">
+            <div class="single_wedo wow fadeIn" data-wow-duration="1s">
+              <div class="single_left_icon">
+                <a href=""><i class="fa fa-star"></i></a>
+              </div>
+              
+              <div class="single_right_text">
+                <h4>UI / UX DESIGN</h4>
+                <div class="separetor2"></div>
+                <p>Lorem Ipsum is simply dummy text thprinting andthe industry's standard dummy text lorem Ipsum is simply dummy</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-sm-6 col-xs-12">
+            <div class="single_wedo wow fadeIn" data-wow-duration="1s">
+              
+              <div class="single_right_text">
+                <h4>UI / UX DESIGN</h4>
+                <div class="separetor2"></div>
+                <p>Lorem Ipsum is simply dummy text thprinting andthe industry's standard dummy text lorem Ipsum is simply dummy</p>
+              </div>
             </div>
           </div>
         </div>
+      </div>
+  </section>
+</div> -->
+  
+<div class="fh5co-cards">
+  <div class="container-fluid">
+    <!-- <div class="row animate-box">
+      <div class="col-md-12 heading text-center"><h2>Your Groups</h2></div>
+    </div> -->
+    <br><br>
+    <div class="col-md-3 col-sm-6 col-xs-12">
+      <div class="info-box" [routerLink]="['/group/new']">
+        <span class="info-box-icon bg-aqua"><i class="fa fa-plus" aria-hidden="true"></i></span>
+
+        <div class="info-box-content">
+          <span class="info-box-text">New</span>
+          <span class="info-box-number">Group<small></small></span>
+        </div>
+      </div>
+    </div>
+    <div class="row col-md-12">
+      <br>
+      <div class="col-lg-6 col-md-6 col-sm-6 animate-box" *ngFor="let group of list_groups">
+        <a class="fh5co-card" [routerLink]="['/groups/', group.id]">
+          <div class="fh5co-card-body">
+            <h3><strong>{{group.name}}</strong></h3>
+            <hr>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste sunt porro delectus cum officia magnam.</p>
+          </div>
+        </a>
       </div>
     </div>
   </div>
