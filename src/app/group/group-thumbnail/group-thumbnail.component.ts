@@ -28,16 +28,18 @@ export class GroupThumbnailComponent implements OnInit {
   info_group: any = {};
   member_button: any = {};
   status_user: number = 3;
+  is_admin: boolean = false;
+  events: any = [];
 
   constructor(
     private groupSevice: GroupService,
     private route: ActivatedRoute,
-
     private router: Router
     ) { }
 
   ngOnInit() {
     this.getGroupThumbnail();
+    
   }
 
   getGroupThumbnail(){
@@ -50,6 +52,8 @@ export class GroupThumbnailComponent implements OnInit {
 
   onSuccessGetGroupInfo(response){
     this.info_group = response.data.group;
+    this.is_admin = response.data.admin;
+    this.events = response.data.events;
     if (response.data.membered == true){
       this.member_button = MemberButton.filter(memberButton => memberButton)[0];
       this.status_user =0;

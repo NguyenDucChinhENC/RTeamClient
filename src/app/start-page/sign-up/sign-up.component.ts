@@ -7,7 +7,7 @@ import * as $ from 'jquery';
   selector: 'app-sign-up',
   templateUrl: './sign-up.component.html',
   styleUrls: ['./sign-up.component.css'],
-  providers: [SignUpService, LoginService],
+  providers: [SignUpService],
 })
 export class SignUpComponent implements OnInit {
 
@@ -17,7 +17,7 @@ export class SignUpComponent implements OnInit {
 
   constructor(
     private signupService: SignUpService,
-    private loginService: LoginService,
+    // private loginService: LoginService,
   ) { }
 
   ngOnInit() {
@@ -73,7 +73,7 @@ export class SignUpComponent implements OnInit {
   }
 
   onNext(response, value: any) {
-    console.log("ok");
+    console.log(response);
     this.signin(value);
   }
 
@@ -82,11 +82,10 @@ export class SignUpComponent implements OnInit {
   }
 
   signin(value: any){
-    console.log(value);
-    // this.loginService.login(value).subscribe(
-    //   response => this.signinSuccess(response),
-    //   response => this.signinError(),
-    // )
+    this.signupService.login(value).subscribe(
+      response => this.signinSuccess(response),
+      response => this.signinError(response, value)
+    );
   }
 
   signinSuccess(response){
@@ -101,8 +100,8 @@ export class SignUpComponent implements OnInit {
     }
   }
 
-  signinError(){
-    console.log("dmm");
+  signinError(response, value){
+    console.log(value);
   }
 
 }

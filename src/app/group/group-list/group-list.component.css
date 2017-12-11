@@ -1,163 +1,4 @@
-.card-container {
-	  -webkit-perspective: 800px;
-   -moz-perspective: 800px;
-     -o-perspective: 800px;
-        perspective: 800px;
-        margin-bottom: 30px;
-}
-/* flip the pane when hovered */
-.card-container:not(.manual-flip):hover .card,
-.card-container.hover.manual-flip .card{
-	-webkit-transform: rotateY( 180deg );
--moz-transform: rotateY( 180deg );
- -o-transform: rotateY( 180deg );
-    transform: rotateY( 180deg );
-}
 
-
-.card-container.static:hover .card,
-.card-container.static.hover .card {
-	-webkit-transform: none;
--moz-transform: none;
- -o-transform: none;
-    transform: none;
-}
-/* flip speed goes here */
-.card {
-	 -webkit-transition: -webkit-transform .5s;
-   -moz-transition: -moz-transform .5s;
-     -o-transition: -o-transform .5s;
-        transition: transform .5s;
--webkit-transform-style: preserve-3d;
-   -moz-transform-style: preserve-3d;
-     -o-transform-style: preserve-3d;
-        transform-style: preserve-3d;
-	position: relative;
-}
-
-/* hide back of pane during swap */
-.front, .back {
-	-webkit-backface-visibility: hidden;
-   -moz-backface-visibility: hidden;
-     -o-backface-visibility: hidden;
-        backface-visibility: hidden;
-	position: absolute;
-	top: 0;
-	left: 0;
-	background-color: #FFF;
-    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.14);
-}
-
-/* front pane, placed above back */
-.front {
-	z-index: 2;
-}
-
-/* back, initially hidden pane */
-.back {
-		-webkit-transform: rotateY( 180deg );
-   -moz-transform: rotateY( 180deg );
-     -o-transform: rotateY( 180deg );
-        transform: rotateY( 180deg );
-        z-index: 3;
-}
-
-.back .btn-simple{
-    position: absolute;
-    left: 0;
-    bottom: 4px;
-}
-/*        Style       */
-
-
-.card{
-    background: none repeat scroll 0 0 #FFFFFF;
-    border-radius: 4px;
-    color: #444444;
-}
-.card-container, .front, .back {
-	width: 100%;
-	height: 320px;
-	border-radius: 4px;
-}
-.card .cover{
-    height: 105px;
-    overflow: hidden;
-    border-radius: 4px 4px 0 0;
-}
-.card .cover img{
-    width: 100%;
-}
-.card .user{
-    border-radius: 50%;
-    display: block;
-    height: 120px;
-    margin: -55px auto 0;
-    overflow: hidden;
-    width: 120px;
-}
-.card .user img{
-    background: none repeat scroll 0 0 #FFFFFF;
-    border: 4px solid #FFFFFF;
-    width: 100%;
-}
-
-.card .content{
-    background-color: rgba(0, 0, 0, 0);
-    box-shadow: none;
-    padding: 10px 20px 20px;
-}
-.card .content .main {
-    min-height: 140px;
-}
-.card .back .content .main {
-    height: 215px;
-}
-.card .name {
-    font-size: 22px;
-    line-height: 28px;
-    margin: 10px 0 0;
-    text-align: center;
-    text-transform: capitalize;
-}
-.card h5{
-    margin: 5px 0;
-    font-weight: 400;
-    line-height: 20px;
-}
-.card .profession{
-    color: #999999;
-    text-align: center;
-    margin-bottom: 20px;
-}
-.card .footer {
-    border-top: 1px solid #EEEEEE;
-    color: #999999;
-    /* margin: 30px 0 0; */
-    padding: 10px 0 0;
-    text-align: center;
-}
-.card .footer .social-links{
-    font-size: 18px;
-}
-.card .footer .social-links a{
-    margin: 0 7px;
-}
-.card .footer .btn-simple{
-    margin-top: -6px;
-}
-.card .header {
-    padding: 15px 20px;
-    height: 90px;
-}
-.card .motto{
-    border-bottom: 1px solid #EEEEEE;
-    color: #999999;
-    font-size: 14px;
-    font-weight: 400;
-    padding-bottom: 10px;
-    text-align: center;
-}
 
 .info-box {
     display: block;
@@ -229,89 +70,8 @@
 
   .bg-red,
   .bg-yellow,
-  .bg-aqua,
-  .bg-blue,
-  .bg-light-blue,
-  .bg-green,
-  .bg-navy,
-  .bg-teal,
-  .bg-olive,
-  .bg-lime,
-  .bg-orange,
-  .bg-fuchsia,
-  .bg-purple,
-  .bg-maroon,
-  .bg-black,
-  .bg-red-active,
-  .bg-yellow-active,
-  .bg-aqua-active,
-  .bg-blue-active,
-  .bg-light-blue-active,
-  .bg-green-active,
-  .bg-navy-active,
-  .bg-teal-active,
-  .bg-olive-active,
-  .bg-lime-active,
-  .bg-orange-active,
-  .bg-fuchsia-active,
-  .bg-purple-active,
-  .bg-maroon-active,
-  .bg-black-active,
-  .callout.callout-danger,
-  .callout.callout-warning,
-  .callout.callout-info,
-  .callout.callout-success,
-  .alert-success,
-  .alert-danger,
-  .alert-error,
-  .alert-warning,
-  .alert-info,
-  .label-danger,
-  .label-info,
-  .label-warning,
-  .label-primary,
-  .label-success,
-  .modal-primary .modal-body,
-  .modal-primary .modal-header,
-  .modal-primary .modal-footer,
-  .modal-warning .modal-body,
-  .modal-warning .modal-header,
-  .modal-warning .modal-footer,
-  .modal-info .modal-body,
-  .modal-info .modal-header,
-  .modal-info .modal-footer,
-  .modal-success .modal-body,
-  .modal-success .modal-header,
-  .modal-success .modal-footer,
-  .modal-danger .modal-body,
-  .modal-danger .modal-header,
-  .modal-danger .modal-footer {
+  .bg-aqua {
     color: #fff !important;
-  }
-  .bg-gray {
-    color: #000;
-    background-color: #d2d6de !important;
-  }
-  .bg-gray-light {
-    background-color: #f7f7f7;
-  }
-  .bg-black {
-    background-color: #111111 !important;
-  }
-  .bg-red,
-  .callout.callout-danger,
-  .alert-danger,
-  .alert-error,
-  .label-danger,
-  .modal-danger .modal-body {
-    background-color: #dd4b39 !important;
-  }
-  .bg-yellow,
-  .callout.callout-warning,
-  .alert-warning,
-  .label-warning,
-  .modal-warning .modal-body {
-    background-color: #f39c12 !important;
   }
   .bg-aqua,
   .callout.callout-info,
@@ -320,68 +80,88 @@
   .modal-info .modal-body {
     background-color: #00c0ef !important;
   }
-  .bg-blue {
-    background-color: #0073b7 !important;
-  }
-  .bg-light-blue,
-  .label-primary,
-  .modal-primary .modal-body {
-    background-color: #3c8dbc !important;
-  }
-  .bg-green,
-  .callout.callout-success,
-  .alert-success,
-  .label-success,
-  .modal-success .modal-body {
-    background-color: #00a65a !important;
-  }
-  .bg-navy {
-    background-color: #001f3f !important;
-  }
-  .bg-teal {
-    background-color: #39cccc !important;
-  }
-  .bg-olive {
-    background-color: #3d9970 !important;
-  }
-  .bg-lime {
-    background-color: #01ff70 !important;
-  }
-  .bg-orange {
-    background-color: #ff851b !important;
-  }
-  .bg-fuchsia {
-    background-color: #f012be !important;
-  }
-  .bg-purple {
-    background-color: #605ca8 !important;
-  }
-  .bg-maroon {
-    background-color: #d81b60 !important;
-  }
-  .bg-gray-active {
-    color: #000;
-    background-color: #b5bbc8 !important;
-  }
-  .bg-black-active {
-    background-color: #000000 !important;
-  }
-  .bg-red-active,
-  .modal-danger .modal-header,
-  .modal-danger .modal-footer {
-    background-color: #d33724 !important;
-  }
-  .bg-yellow-active,
-  .modal-warning .modal-header,
-  .modal-warning .modal-footer {
-    background-color: #db8b0b !important;
-  }
+  
   .bg-aqua-active,
   .modal-info .modal-header,
   .modal-info .modal-footer {
     background-color: #00a7d0 !important;
   }
 
-  .header-group {
-    width: 100vh;
+  
+
+
+
+
+.fh5co-cards {
+  background: whitesmoke;
+}
+@media screen and (max-width: 768px) {
+  .fh5co-cards {
+    padding: 3em 0;
   }
+}
+.fh5co-cards .fh5co-card {
+  display: block;
+  background: #ffffff;
+  position: relative;
+  overflow: hidden;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  border-radius: 5px;
+  -webkit-box-shadow: 0 0.125em 0.125em 0 rgba(0, 0, 0, 0.125);
+  -moz-box-shadow: 0 0.125em 0.125em 0 rgba(0, 0, 0, 0.125);
+  -ms-box-shadow: 0 0.125em 0.125em 0 rgba(0, 0, 0, 0.125);
+  -o-box-shadow: 0 0.125em 0.125em 0 rgba(0, 0, 0, 0.125);
+  box-shadow: 0 0.125em 0.125em 0 rgba(0, 0, 0, 0.125);
+  margin-bottom: 30px;
+  border-bottom: none;
+  bottom: 0;
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  -ms-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+.fh5co-cards .fh5co-card img {
+  z-index: -1;
+}
+.fh5co-cards .fh5co-card .fh5co-card-body {
+  padding: 10px 30px;
+  padding-bottom: 20px;
+}
+.fh5co-cards .fh5co-card .fh5co-card-body h3 {
+  font-size: 20px;
+  color: #8b969c;
+  margin-bottom: 10px;
+}
+.fh5co-cards .fh5co-card .fh5co-card-body p {
+  color: #8b969c;
+}
+.fh5co-cards .fh5co-card .fh5co-card-body p:last-child {
+  margin-bottom: 0;
+}
+.fh5co-cards .fh5co-card:hover {
+  text-decoration: none;
+  border-bottom: none;
+  bottom: 10px;
+  background:#607D8B;
+  color:#fff;
+}
+
+.fh5co-cards .fh5co-card .fh5co-card-body:hover p {
+  color:#fff;
+}
+
+.fh5co-cards .fh5co-card .fh5co-card-body:hover h3 {
+  color:#fff;
+}
+
+.fh5co-cards .fh5co-card:hover h3 {
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -ms-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+  color: #57cecd;
+}

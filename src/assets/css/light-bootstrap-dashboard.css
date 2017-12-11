@@ -494,7 +494,7 @@ input:focus {
   max-height: 100%;
   height: 100%; }
 
-.btn {
+/* .btn {
   border-width: 2px;
   background-color: transparent;
   font-weight: 400;
@@ -737,7 +737,7 @@ input:focus {
   position: absolute;
   top: 50%;
   margin-top: -1px;
-  right: 8px; }
+  right: 8px; } */
 
 .form-control::-moz-placeholder {
   color: #DDDDDD;

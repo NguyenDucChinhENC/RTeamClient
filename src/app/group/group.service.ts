@@ -42,6 +42,13 @@ export class GroupService {
       {member: {accept: "true"}}, option).map(response => response.json());
   }
 
+  adminDeleteMember(token: string, id_member_group: any): Observable<any>{
+    const headers: any = {'RT-AUTH-TOKEN': token};
+    const option = new RequestOptions({headers: headers})
+    return this.http.delete(URL + 'api/member_groups/' + id_member_group
+      , option).map(response => response.json());
+  }
+
   newGroup(token: string, value: any): Observable<any>{
     const headers: any = {'RT-AUTH-TOKEN': token};
     const option = new RequestOptions({headers: headers});
