@@ -1,12 +1,10 @@
 <div *ngIf="current_user; else elseBlock">
-<div class="wrapper">
-    <div class="sidebar" data-color="black" data-image="">
+<div>
+    <div>
         <app-sidebar></app-sidebar>
-        <div class="sidebar-background" style="background-image: url(/assets/img/sidebar-5.jpg)"></div>
     </div>
 
-    <div class="main-panel">
-        <navbar-cmp></navbar-cmp>
+    <div>
         <router-outlet></router-outlet>
     </div>
 </div>

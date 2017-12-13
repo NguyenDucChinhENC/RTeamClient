@@ -1,4 +1,4 @@
-<div class="main-content">
+<!-- <div class="main-content">
   <div class="container-fluid">
     <div class="row">
       <div class="col-md-8">
@@ -44,7 +44,7 @@
                     <label>Address</label>
                     <div type="text" class="form-control">{{currentUser.address}}</div></div>
                 </div>
-              </div>
+              </div> -->
               <!-- <div class="row">
                 <div class="col-md-4">
                   <div class="form-group">
@@ -70,7 +70,7 @@
                   </div>
                 </div>
               </div> -->
-              <button type="submit" class="btn btn-info btn-fill pull-right">Update Profile</button>
+              <!-- <button type="submit" class="btn btn-info btn-fill pull-right">Update Profile</button>
               <div class="clearfix"></div>
             </form>
           </div>
@@ -100,4 +100,205 @@
       </div>
     </div>
   </div>
-</div>
+</div> -->
+<div id="all">
+    
+            <div id="content">
+                <div class="container">
+    
+                    <div class="col-md-12">
+    
+                        <ul class="breadcrumb">
+                            <li><a routerLink="">Home</a>
+                            </li>
+                            <li>My account</li>
+                        </ul>
+    
+                    </div>
+
+                    <div class="col-md-3">
+                        <!-- *** CUSTOMER MENU ***
+     _________________________________________________________ -->
+                        <div class="panel panel-default sidebar-menu">
+    
+                            <div class="panel-heading">
+                                <h3 class="panel-title">Customer section</h3>
+                            </div>
+    
+                            <div class="panel-body">
+    
+                                <ul class="nav nav-pills nav-stacked">
+                                    <li class="active">
+                                        <a href="customer-account.html"><i class="fa fa-user"></i> My account</a>
+                                    </li>
+                                    <li>
+                                        <a href="customer-orders.html"><i class="fa fa-list"></i> My orders</a>
+                                    </li>
+                                    <li>
+                                        <a href="customer-wishlist.html"><i class="fa fa-heart"></i> My wishlist</a>
+                                    </li>
+                                    <li>
+                                        <a href="index.html"><i class="fa fa-sign-out"></i> Logout</a>
+                                    </li>
+                                </ul>
+                            </div>
+    
+                        </div>
+                        <!-- /.col-md-3 -->
+    
+                        <!-- *** CUSTOMER MENU END *** -->
+                    </div>
+                    <div class="col-md-9">
+                        <div class="box">
+                            <h1>My account</h1>
+                            <div class="row">
+                                <div class="col-md-3 col-lg-3 " align="center"> 
+                                  <div class="profile-block">
+                                  <img alt="User Pic" src="{{currentUser.avatar}}" class="img-circle img-responsive"> 
+                                  <br>
+                                  <a href="#" data-toggle="modal" data-target="#avatarChange" class="btn btn-primary">Change Avatar</a>
+                                  </div>
+                                </div>
+                               
+                                <div class=" col-md-9 col-lg-9 "> 
+                                  <table class="table table-user-information">
+                                    <tbody>
+                                      <tr>
+                                        <td>Name</td>
+                                        <td>{{currentUser.name}}</td>
+                                      </tr>
+                                      <tr>
+                                        <td>Birthday</td>
+                                        <td>{{currentUser.birthday}}</td>
+                                      </tr>
+                                      <tr>
+                                        <td>ID Number</td>
+                                        <td>{{currentUser.id_number}}</td>
+                                      </tr>
+                                   
+                                         <tr>
+                                        <td>Email:</td>
+                                        <td>{{currentUser.email}}</td>
+                                      </tr>
+                                        <tr>
+                                        <td>Number Phone</td>
+                                        <td>{{currentUser.number_phone}}</td>
+                                      </tr>
+                                      <tr>
+                                        <td>Address</td>
+                                        <td>{{currentUser.address}}</td>
+                                      </tr>
+                                      
+                                           
+                                     
+                                    </tbody>
+                                  </table>
+                                  
+                                  <a href="#" data-toggle="modal" data-target="#squarespaceModal" class="btn btn-primary">Update Your Profile</a>
+                                  <!-- <a href="#" class="btn btn-primary">Team Sales Performance</a> -->
+                                </div>
+                              </div>
+                        </div>
+                    </div>
+    
+                </div>
+                <!-- /.container -->
+            </div>
+            <div class="modal fade" id="squarespaceModal" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+                    <h3 class="modal-title" id="lineModalLabel">Update your profile</h3>
+                  </div>
+                  <div class="modal-body">
+                    
+                          <!-- content goes here -->
+                    <form #updateForm = "ngForm" (ngSubmit)="onClickUpdate(updateForm.value)">
+                      <div ngModelGroup = "user">
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label>Name</label>
+                                    <input type="text" class="form-control" id="name" name="name" value="{{currentUser.name}}" ngModel/>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label>Email</label>
+                                    <input type="email" class="form-control" id="email" name="email" value="{{currentUser.email}}" ngModel/>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label>Id Number</label>
+                                    <input type="number" class="form-control" id="id_number" name="id_number" value="{{currentUser.id_number}}" ngModel/>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label>Birthday</label>
+                                    <input type="date" class="form-control" id="birthday" name="birthday" value="{{currentUser.birtday}}" ngModel/>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        </div>
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                          </form>
+              
+                  </div>
+                  <div class="modal-footer">
+                    <div class="btn-group btn-group-justified" role="group" aria-label="group button">
+                      <div class="btn-group" role="group">
+                        <button type="button" class="btn btn-default" data-dismiss="modal"  role="button">Close</button>
+                      </div>
+                      <div class="btn-group btn-delete hidden" role="group">
+                        <button type="button" id="delImage" class="btn btn-hover-primary" data-dismiss="modal"  role="button">Delete</button>
+                      </div>
+                      <div class="btn-group" role="group">
+                        <button type="button" id="saveImage" class="btn btn-default btn-hover-green" data-action="save" role="button">Save</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                </div>
+              </div>
+
+              <div class="modal fade" id="avatarChange" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
+                  <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+                      <h3 class="modal-title" id="lineModalLabel">Update your new avatar</h3>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-group files">
+                            <label>Upload Your File </label>
+                            <input type="file" class="choose-file" id="imageInput"
+                            (change)="onChange($event)">
+                          </div>
+
+
+                            <!-- content goes here -->
+                        
+                
+                    </div>
+                    <div class="modal-footer">
+                      <div class="btn-group btn-group-justified" role="group" aria-label="group button">
+                        <div class="btn-group" role="group">
+                          <button type="button" class="btn btn-default" data-dismiss="modal"  role="button">Close</button>
+                        </div>
+                        <div class="btn-group btn-delete hidden" role="group">
+                          <button type="button" id="delImage" class="btn btn-hover-primary" data-dismiss="modal"  role="button">Delete</button>
+                        </div>
+                        <div class="btn-group" role="group">
+                          <button type="button" id="saveImage" class="btn btn-default btn-hover-green" data-action="save" role="button">Save</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  </div>
+                </div>
