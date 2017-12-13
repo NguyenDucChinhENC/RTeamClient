@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html >
 <head>
   <meta charset="UTF-8">
@@ -33,13 +33,13 @@
                         <div class="bs-calltoaction bs-calltoaction-default">
                             <div class="row">
                                 <div class="col-md-9 cta-contents">
-                                    <h2 class="cta-title">Create new Event</h2>
+                                    <h2 class="cta-title">Create new Event</h2> -->
                                     <!-- <div class="cta-desc">
                                         <p>Describe the action here.</p>
                                         <p>Describe the action here.</p>
                                         <p>Describe the action here.</p>
                                     </div> -->
-                                </div>
+                                <!-- </div>
                                 <div class="col-md-3 cta-button">
                                     <a href="#" class="btn btn-lg btn-block btn-primary">Create Event!</a>
                                 </div>
@@ -99,10 +99,10 @@
                                   <p>at <a href="#" title="">Khana Zidi</a> Jonathan DOe Uploaded 4 new photos.</p>
                                   <div class="timeline-gallery">
                                     <ul>
-                                      <li><a title="Gallery Image" class="lightbox" href="javascript:"><i class="fa fa-search-plus"></i><img src="http://www.foreclosure-support.com/images/johnny-depp.jpg" alt=""></a></li>
+                                      <li><a title="Gallery Image" class="lightbox" href="javascript:"><i class="fa fa-search-plus"></i><img src="http://www.foreclosure-support.com/images/johnny-depp.jpg" alt=""></a></li> -->
                                       <!-- <li><a title="Gallery Image" class="lightbox" href="javascript:"><i class="fa fa-search-plus"></i><img src="http://images.starpulse.com/pictures/2013/08/08/previews/Matt%20Damon-MTO-009587.jpg" alt=""></a></li> -->
                                       <!-- <li><a title="Gallery Image" class="lightbox" href="javascript:"><i class="fa fa-search-plus"></i><img src="http://images.boomsbeat.com/data/images/full/32034/422817_original-jpg.jpg" alt=""></a></li> -->
-                                      <li><a title="Gallery Image" class="lightbox" href="javascript:"><i class="fa fa-search-plus"></i><img src="http://img2.timeinc.net/people/i/2006/celebdatabase/denzelwashington/denzel_washington1_300_400.jpg" alt=""></a></li>
+                                      <!-- <li><a title="Gallery Image" class="lightbox" href="javascript:"><i class="fa fa-search-plus"></i><img src="http://img2.timeinc.net/people/i/2006/celebdatabase/denzelwashington/denzel_washington1_300_400.jpg" alt=""></a></li>
                                     </ul>
                                   </div>
                                 <div data-toggle="buttons" class="btn-group btn-group-sm">
@@ -173,4 +173,160 @@
 
 </body>
 </html>
+ -->
+ <div id="all">
+  
+          <div id="content">
+              <div class="container">
+                  <div class="col-md-12">
+                      <div class="background" [style.background-image]="getBackground(cover)" style=" background-size: cover;
+                      background-repeat: no-repeat; max-height: 200px;">
+                        </div>
+                        <button data-toggle="modal" data-target="#actionGroup" class=" pull-right btn btn-default btn-sm btn-primary" style="margin: 4px;"><i class="fa fa-group"></i>{{member_button.title}}</button>
+                        
+                      <ul class="breadcrumb">
+                          <li><a routerLink="">Home</a>
+                          </li>
+                          <li><a [routerLink]="['/groups']">Groups</a></li>
+                          <li>{{info_group.name}}</li>
+                      </ul>
+                  </div>
+  
+                  <div class="col-md-3">
+                      <!-- *** MENUS AND FILTERS ***
+   _________________________________________________________ -->
+                      <div class="panel panel-default sidebar-menu">
+  
+                          <div class="panel-heading">
+                              <h3 class="panel-title">Groups</h3>
+                          </div>
+  
+                          <div class="panel-body">
+                              <ul class="nav nav-pills nav-stacked category-menu">
+                                  <li class="active">
+                                      <a>{{info_group.name}}<span class="badge pull-right"></span></a>
+                                      <ul>
+                                          <li><a>Total Members<span class="badge pull-right">{{member_total}}</span></a>
+                                          </li>
+                                          <li><a>Total Events<span class="badge pull-right">{{event_total}}</span></a>
+                                          </li>
+                                      </ul>
+                                  </li>
+                                  <li class="active">
+                                      <a href="category.html">DESCRIPTION<span class="badge pull-right"></span></a>
+                                      <ul>
+                                          <li><a>{{info_group.description}}hihi</a>
+                                          </li>
+                                      </ul>
+                                  </li>
+                                  
+                              </ul>
+                          </div>
+                      </div>
+                      <div class="panel panel-default sidebar-menu" *ngIf="is_admin">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">Admin</h3>
+                        </div>
 
+                        <div class="panel-body">
+                            <ul class="nav nav-pills nav-stacked category-menu">
+                                <li class="active">
+                                    <a href="category.html">{{info_group.name}}<span class="badge pull-right"></span></a>
+                                    <ul>
+                                        <li><a>Total member waiting<span class="badge pull-right">{{member_total}}</span></a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li *ngIf="is_admin"><a [routerLink]="['/events/edit', info_group.id]">Manage Group</a></li>
+                                <li>
+                                    <a data-toggle="modal" data-target="#coverGroupChange">Change Cover Group<span class="badge pull-right"></span></a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                  </div>
+  
+                  <div class="col-md-9">
+                      <div class="box">
+                          <h2>{{info_group.name}}</h2>
+                          <p class="buttons"><a href="index.html" class="btn btn-primary"><i class="fa fa-plus"></i>Create new Group</a>
+                          </p>
+                      </div>
+                      
+  
+                      <div id="blog-listing" *ngFor="let event of events">
+                          <div class="post">
+                              <h2><a  [routerLink]="['/groups']">{{event.name}}</a></h2>
+                              <p class="author-category">By <a href="#">John Slim</a> in <a href="">Fashion and style</a>
+                              </p>
+                              <hr>
+                              <p class="date-comments">
+                                  <a><i class="fa fa-user"></i>Posted about {{event.time_ago}}</a>
+                                  <a><i class="fa fa-calendar-o"></i>Posted about {{event.time_ago}}</a>
+                                  <a><i class="fa fa-comment-o"></i> 8 Comments</a>
+                              </p>
+                              <div class="image">
+                                  <div class="background" [style.background-image]="getBackground(cover)" style=" background-size: cover;
+                      background-repeat: no-repeat; max-height: 250px;">
+                        </div>
+                              </div>
+                              <p class="intro">{{event.infor}}</p>
+                              <p class="read-more"><a   class="btn btn-primary">Continue reading</a>
+                              </p>
+                          </div>
+                      </div>
+                  </div>
+                  <!-- /.col-md-9 -->
+              </div>
+              <!-- /.container -->
+          </div></div>
+          <div class="modal fade" id="coverGroupChange" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
+              <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+                  <h3 class="modal-title" id="lineModalLabel">Update Group Cover</h3>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group files">
+                        <label>Upload Your File </label>
+                        <input type="file" class="choose-file" id="imageInput"
+                        (change)="onChange($event)">
+                      </div>
+                </div>
+                <div class="modal-footer">
+                  <div class="btn-group btn-group-justified" role="group" aria-label="group button">
+                    <div class="btn-group" role="group">
+                      <button type="button" class="btn btn-default" data-dismiss="modal"  role="button">Close</button>
+                    </div>
+                    <div class="btn-group btn-delete hidden" role="group">
+                      <button type="button" id="delImage" class="btn btn-hover-primary" data-dismiss="modal"  role="button">Delete</button>
+                    </div>
+                    <div class="btn-group" role="group">
+                      <button type="button" id="saveImage" class="btn btn-default btn-hover-green" data-action="save" role="button">Save</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              </div>
+            </div>
+            <div class="modal fade" id="actionGroup" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true" >
+                <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+                    <!-- <h3 class="modal-title" id="lineModalLabel">Actions Group</h3> -->
+                    <ul class="nav nav-pills nav-stacked category-menu">
+                        <li class="active">
+                            <a>{{info_group.name}}<span class="badge pull-right"></span></a>
+                            <ul>
+                              <br>
+                                <button data-toggle="modal" data-target="#actionGroup" class=" pull-center btn btn-default btn-sm btn-primary" style="margin: 4px;" (click)="action()"><i class="fa fa-group"></i>{{member_button.action}}</button>
+                            <br>
+                              </ul>
+                        </li>
+                    </ul>
+                  </div>
+                </div>
+                </div>
+              </div>

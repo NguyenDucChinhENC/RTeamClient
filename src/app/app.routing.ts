@@ -41,7 +41,7 @@ const routes: Routes =[
     { path: 'group/new', component: NewGroupComponent },
     { path: 'groups/admin/:id', component: GroupManageComponent},
     { path: 'groups/:id/event/new', component: NewEventComponent},
-    { path: 'events/:id/edit', component: EditEventComponent}
+    { path: 'events/edit/:id', component: EditEventComponent}
 ];
 
 @NgModule({

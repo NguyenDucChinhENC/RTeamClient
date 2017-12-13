@@ -35,6 +35,12 @@ export class GroupService {
     return this.http.post(URL + 'api/member_groups', {id: id_group} , option).map(response => response.json())
   }
 
+  cancelJoinGroup(token: string, id_member_group: any): Observable<any> {
+    const headers: any = {'RT-AUTH-TOKEN': token};
+    const option = new RequestOptions({headers: headers});
+    return this.http.delete(URL + 'api/member_groups/'+ id_member_group, option).map(response => response.json())
+  }
+
   adminAcceptRequest(token: string, id_member_group: any): Observable<any>{
     const headers: any = {'RT-AUTH-TOKEN': token};
     const option = new RequestOptions({headers: headers})
@@ -61,5 +67,19 @@ export class GroupService {
     const option = new RequestOptions({headers: headers})
     return this.http.delete(URL +'api/groups/' + id_group,
       option).map(response => response.json())
+  }
+
+  changPageLists(token: string, page: any){
+    const linkPage = this.apiURL + '?page=' + page;
+    const headers: any = {'RT-AUTH-TOKEN': token};
+    const option = new RequestOptions({headers: headers});
+    return this.http.get(linkPage, option).map(response => response.json())
+  }
+
+  changeCover(ava, id: number, token: string): Observable<any> {
+    const apiurl = URL + 'api/groups/' + id;
+    const headers: any = {'RT-AUTH-TOKEN': token };
+    const options = new RequestOptions({headers: headers});
+    return this.http.patch(apiurl, ava, options);
   }
 }

@@ -24,4 +24,11 @@ export class ProfileService {
     console.log(value);
     return this.http.patch(this.apiURL + id, value, options );
   }
+
+  changeAvatar(ava, id: number, token: string): Observable<any> {
+    const apiurl = URL + 'api/users/' + id;
+    const headers: any = {'RT-AUTH-TOKEN': token };
+    const options = new RequestOptions({headers: headers});
+    return this.http.patch(apiurl, ava, options);
+  }
 }
