@@ -15,6 +15,7 @@ export class GroupManageComponent implements OnInit {
   info_group: any = {};
   member_waiting: any[] = [];
   list_membered: any[] = [];
+  list_admin: any[]=[];
 
   current_user: any = {};
   member_button: any = {};
@@ -40,9 +41,17 @@ export class GroupManageComponent implements OnInit {
   }
 
   onSuccessGetGroupInfo(response){
+    this.list_membered = [];
+    this.member_waiting = [];
+    this.list_admin = [];
     this.info_group = response.data.group;
     this.member_waiting = response.data.member_waiting;
     this.list_membered = response.data.list_membered;
+    for ( var i = 0; i < this.list_membered.length; i++){
+      if (this.list_membered[i].admin){
+        this.list_admin.push(this.list_membered[i])
+      }
+    }
   }
 
   onErrorGetGroupInfo(){
@@ -71,12 +80,32 @@ export class GroupManageComponent implements OnInit {
   }
 
   onDeleteGroupSuccess(response){
-    console.log("delete group success");
+    console.log(this.list_membered);
+    for ( var i = 0; i < this.list_membered.length; i++){
+      if (this.list_membered[i].id == response.data.membered.id){
+        this.list_membered.splice(i,1)
+        console.log(i + "hihi")
+      }
+    }
   }
 
   onDeleteMember(value: any){
     console.log("ok");
     this.groupSevice.adminDeleteMember(this.current_user.authentication_token, value).subscribe(response => this.onDeleteGroupSuccess(response))
+  }
+
+  addAdmin(id_member_group){
+    this.groupSevice.addAdminGroup(this.current_user.authentication_token, id_member_group).
+      subscribe(response => this.onAddAdminSuccess(response))
+  }
+
+  onAddAdminSuccess(response){
+    this.getGroupThumbnail();
+  }
+
+  deleteAdmin(id_member_group){
+    this.groupSevice.delteteAdminGroup(this.current_user.authentication_token, id_member_group).
+      subscribe(response => this.onAddAdminSuccess(response))
   }
 
 }

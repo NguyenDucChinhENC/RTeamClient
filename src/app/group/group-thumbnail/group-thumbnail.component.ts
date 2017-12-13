@@ -58,7 +58,7 @@ export class GroupThumbnailComponent implements OnInit {
 
   onSuccessGetGroupInfo(response){
     this.info_group = response.data.group;
-    if (this.info_group.cover.url) {
+    if (this.info_group.cover) {
       this.cover= this.info_group.cover.url +"";
     }
     this.is_admin = response.data.admin;

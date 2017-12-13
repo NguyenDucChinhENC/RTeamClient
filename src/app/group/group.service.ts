@@ -82,4 +82,18 @@ export class GroupService {
     const options = new RequestOptions({headers: headers});
     return this.http.patch(apiurl, ava, options);
   }
+
+  addAdminGroup(token: string, id_member_group: any): Observable<any>{
+    const headers: any = {'RT-AUTH-TOKEN': token};
+    const option = new RequestOptions({headers: headers})
+    return this.http.patch(URL + 'api/member_groups/' + id_member_group,
+      {member: {admin: "true"}}, option).map(response => response.json());
+  }
+
+  delteteAdminGroup(token: string, id_member_group: any): Observable<any>{
+    const headers: any = {'RT-AUTH-TOKEN': token};
+    const option = new RequestOptions({headers: headers})
+    return this.http.patch(URL + 'api/member_groups/' + id_member_group,
+      {member: {admin: "false"}}, option).map(response => response.json());
+  }
 }
