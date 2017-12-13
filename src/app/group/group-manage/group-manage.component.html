@@ -1,126 +1,150 @@
-<div class="main-content">
-    <!-- <div class="card card-group">
-      <div class="image"> <img src="https://ununsplash.imgix.net/photo-1431578500526-4d9613015464?fit=crop&fm=jpg&h=300&q=75&w=400" alt="..." /> </div>
-    </div> -->
-    <div class="row">
-      <div class="col-lg-3 col-xs-6">
-        <!-- small box -->
-        <div class="small-box bg-aqua">
-          <div class="inner">
-            <h3>{{list_membered.length}}</h3>
+<div class="container">
+  <div class="main-content">
+      <!-- <div class="card card-group">
+        <div class="image"> <img src="https://ununsplash.imgix.net/photo-1431578500526-4d9613015464?fit=crop&fm=jpg&h=300&q=75&w=400" alt="..." /> </div>
+      </div> -->
+      <div class="row">
+        <div class="col-lg-3 col-xs-6">
+          <!-- small box -->
+          <div class="small-box bg-aqua">
+            <div class="inner">
+              <h3>{{list_membered.length}}</h3>
 
-            <p>Members</p>
+              <p>Members</p>
+            </div>
+            <a href="#" class="small-box-footer">
+              More info <i class="fa fa-arrow-circle-right"></i>
+            </a>
           </div>
-          <a href="#" class="small-box-footer">
-            More info <i class="fa fa-arrow-circle-right"></i>
-          </a>
+        </div>
+        <!-- ./col -->
+        <div class="col-lg-3 col-xs-6">
+          <!-- small box -->
+          <div class="small-box bg-green">
+            <div class="inner">
+              <h3>53<sup style="font-size: 20px">%</sup></h3>
+
+              <p>Bounce Rate</p>
+            </div>
+            <div class="icon">
+              <i class="ion ion-stats-bars"></i>
+            </div>
+            <a href="#" class="small-box-footer">
+              More info <i class="fa fa-arrow-circle-right"></i>
+            </a>
+          </div>
+        </div>
+        <!-- ./col -->
+        <div class="col-lg-3 col-xs-6">
+          <!-- small box -->
+          <div class="small-box bg-yellow">
+            <div class="inner">
+              <h3>44</h3>
+
+              <p>User Registrations</p>
+            </div>
+            <div class="icon">
+              <i class="ion ion-person-add"></i>
+            </div>
+            <a href="#" class="small-box-footer">
+              More info <i class="fa fa-arrow-circle-right"></i>
+            </a>
+          </div>
+        </div>
+        <!-- ./col -->
+        <div class="col-lg-3 col-xs-6">
+          <!-- small box -->
+          <div class="small-box bg-red">
+            <div class="inner">
+              <h3>65</h3>
+
+              <p>Unique Visitors</p>
+            </div>
+            <div class="icon">
+              <i class="ion ion-pie-graph"></i>
+            </div>
+            <a href="#" class="small-box-footer">
+              More info <i class="fa fa-arrow-circle-right"></i>
+            </a>
+          </div>
         </div>
       </div>
-      <!-- ./col -->
-      <div class="col-lg-3 col-xs-6">
-        <!-- small box -->
-        <div class="small-box bg-green">
-          <div class="inner">
-            <h3>53<sup style="font-size: 20px">%</sup></h3>
-
-            <p>Bounce Rate</p>
-          </div>
-          <div class="icon">
-            <i class="ion ion-stats-bars"></i>
-          </div>
-          <a href="#" class="small-box-footer">
-            More info <i class="fa fa-arrow-circle-right"></i>
-          </a>
+      <div class="row">
+          <div class="col-md-6">
+              <div class="box box-warning">
+                <div class="box-header with-border">
+                  <h3 class="box-title">Waitng Accept</h3>
+                </div>
+                <div class="box-body category box-title" *ngFor = "let member of member_waiting">
+                    <div class="pull-right">
+                        <div class="row">
+                            <div class="col-md-6" >
+                                <a class="btn small-box bg-green" (click)="onAcceptButton(member.id)">Accept</a>
+                            </div>
+                            <div class="col-md-6">
+                                <a class="btn btn-default btn-block">Decline</a>  
+                            </div>
+                        </div>
+                      </div>
+                      <div class="member-waiting"><h5></h5>{{member.member.name}}</div>
+                </div>
+              </div>
+              <div class="box box-warning">
+                  <div class="box-header with-border">
+                    <h3 class="box-title">Members</h3>
+                  </div>
+                  <div class="box-body category box-title" *ngFor = "let member of list_membered">
+                      <div class="pull-right">
+                          <div class="row">
+                              <div class="col-md-12">
+                                  <a class="btn btn-default btn-block" (click)="onDeleteMember(member.id)">Delete</a>  
+                              </div>
+                          </div>
+                        </div>
+                        <div class="pull-right" style="margin-right: 10px;" *ngIf="!member.admin">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <a class="btn btn-default btn-block" (click)="addAdmin(member.id)">Add Admin</a>  
+                                </div>
+                            </div>
+                          </div>
+                        <div class="member-waiting" routerLink="/user/{{member.member.id}}"><h5>{{member.member.name}}</h5></div>
+                  </div>
+                </div>
         </div>
-      </div>
-      <!-- ./col -->
-      <div class="col-lg-3 col-xs-6">
-        <!-- small box -->
-        <div class="small-box bg-yellow">
-          <div class="inner">
-            <h3>44</h3>
-
-            <p>User Registrations</p>
-          </div>
-          <div class="icon">
-            <i class="ion ion-person-add"></i>
-          </div>
-          <a href="#" class="small-box-footer">
-            More info <i class="fa fa-arrow-circle-right"></i>
-          </a>
-        </div>
-      </div>
-      <!-- ./col -->
-      <div class="col-lg-3 col-xs-6">
-        <!-- small box -->
-        <div class="small-box bg-red">
-          <div class="inner">
-            <h3>65</h3>
-
-            <p>Unique Visitors</p>
-          </div>
-          <div class="icon">
-            <i class="ion ion-pie-graph"></i>
-          </div>
-          <a href="#" class="small-box-footer">
-            More info <i class="fa fa-arrow-circle-right"></i>
-          </a>
-        </div>
-      </div>
-    </div>
-    <div class="row">
         <div class="col-md-6">
             <div class="box box-warning">
-              <div class="box-header with-border">
-                <h3 class="box-title">Waitng Accept</h3>
-              </div>
-              <div class="box-body category box-title" *ngFor = "let member of member_waiting">
-                  <div class="pull-right">
-                      <div class="row">
-                          <div class="col-md-6" >
-                              <a class="btn small-box bg-green" (click)="onAcceptButton(member.id)">Accept</a>
-                          </div>
-                          <div class="col-md-6">
-                              <a class="btn btn-default btn-block">Decline</a>  
-                          </div>
-                      </div>
-                    </div>
-                    <div class="member-waiting"><h5></h5>{{member.member.name}}</div>
-              </div>
-            </div>
-            <div class="box box-warning">
                 <div class="box-header with-border">
-                  <h3 class="box-title">Members</h3>
+                  <h3 class="box-title">Admins</h3>
                 </div>
-                <div class="box-body category box-title" *ngFor = "let member of list_membered">
+                <div class="box-body category box-title" *ngFor = "let member of list_admin">
                     <div class="pull-right">
                         <div class="row">
                             <div class="col-md-12">
-                                <a class="btn btn-default btn-block" (click)="onDeleteMember(member.id)">Delete</a>  
+                                <a class="btn btn-default btn-block" (click)="deleteAdmin(member.id)">Delete admin rights</a>  
                             </div>
                         </div>
                       </div>
                       <div class="member-waiting" routerLink="/user/{{member.member.id}}"><h5>{{member.member.name}}</h5></div>
                 </div>
               </div>
-      </div>
-      <div class="col-md-6">
-        <div class="box box-danger">
-          <div class="box-header with-border">
-            <h3 class="box-title">More Actions</h3>
-          </div>
-          <div class="box-body category box-title">
-            <div class="pull-right">
-              <div class="row">
-                  <div class="col-md-12">
-                      <a class="btn small-box bg-red" (click)="onDeleteGroupButton()">Delete</a>  
-                  </div>
-              </div>
+          <div class="box box-danger">
+            <div class="box-header with-border">
+              <h3 class="box-title">More Actions</h3>
             </div>
-                <div class="member-waiting"><h5>Delete Group</h5></div>
+            <div class="box-body category box-title">
+              <div class="pull-right">
+                <div class="row">
+                    <div class="col-md-12">
+                        <a class="btn small-box bg-red" (click)="onDeleteGroupButton()">Delete</a>  
+                    </div>
+                </div>
+              </div>
+                  <div class="member-waiting"><h5>Delete Group</h5></div>
+            </div>
           </div>
-        </div>
-        </div>
-    </div>
-    
+          </div>
+      </div>
+      
+  </div>
 </div>
