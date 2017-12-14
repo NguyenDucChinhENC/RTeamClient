@@ -82,6 +82,7 @@ import { DialogDeleteEvent } from './event/edit-event/edit-event.component';
 import { MatDialogModule } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SignUpComponent } from './start-page/sign-up/sign-up.component';
+import { EditorComponent } from './helpers/editor/editor.component';
 
 @NgModule({
   declarations: [
@@ -102,7 +103,8 @@ import { SignUpComponent } from './start-page/sign-up/sign-up.component';
     NewEventComponent,
     EditEventComponent,
     DialogDeleteEvent,
-    SignUpComponent
+    SignUpComponent,
+    EditorComponent
   ],
   imports: [
     BrowserModule,
