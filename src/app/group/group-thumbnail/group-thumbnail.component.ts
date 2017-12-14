@@ -48,6 +48,10 @@ export class GroupThumbnailComponent implements OnInit {
     
   }
 
+  onBodyTextEditorKeyup(event){
+    console.log()
+  }
+
   getGroupThumbnail(){
     this.id_group = this.route.snapshot.params['id'];
     this.current_user = JSON.parse(localStorage.getItem('currentUser'));

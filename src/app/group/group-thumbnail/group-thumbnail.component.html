@@ -250,6 +250,11 @@
                       <div class="box">
                           <h2>{{info_group.name}}</h2>
                           <p class="buttons"><a href="index.html" class="btn btn-primary"><i class="fa fa-plus"></i>Create new Group</a>
+                            <text-editor
+                            [elementId]="'my-editor-id'"
+                            (onEditorKeyup)="onBodyTextEditorKeyup($event)"
+                            >
+                          </text-editor>
                           </p>
                       </div>
                       
