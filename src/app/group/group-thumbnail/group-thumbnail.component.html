@@ -261,7 +261,7 @@
   
                       <div id="blog-listing" *ngFor="let event of events">
                           <div class="post">
-                              <h2><a  [routerLink]="['/groups']">{{event.name}}</a></h2>
+                              <h2><a  [routerLink]="['/events', event.id]">{{event.name}}</a></h2>
                               <p class="author-category">By <a href="#">John Slim</a> in <a href="">Fashion and style</a>
                               </p>
                               <hr>
@@ -276,7 +276,7 @@
                         </div>
                               </div>
                               <p class="intro">{{event.infor}}</p>
-                              <p class="read-more"><a   class="btn btn-primary">Continue reading</a>
+                              <p class="read-more"><a   class="btn btn-primary" [routerLink]="['/events', event.id]">Continue reading</a>
                               </p>
                           </div>
                       </div>
