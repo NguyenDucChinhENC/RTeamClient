@@ -1,0 +1,131 @@
+<div id="content">
+  <div class="container">
+
+      <div class="col-sm-12">
+
+          <ul class="breadcrumb">
+
+              <li><a href="index.html">Home</a>
+              </li>
+              <li><a [routerLink]="['/groups']">Groups</a>
+              </li>
+              <li><a>{{owner.name}}</a>
+              </li>
+              <li>{{event.name}}</li>
+          </ul>
+      </div>
+
+      <div class="col-sm-8" id="blog-post">
+
+
+          <div class="box">
+
+              <h1>{{event.name}}</h1>
+              <p class="author-date">By <a [routerLink]="['/groups', owner.id]">{{owner.name}}</a> | about {{event.time_ago}} ago</p>
+              <!-- <p class="lead">This is the lead paragraph of the article. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget.</p> -->
+
+              <div id="post-content">
+                    <blockquote>
+                            <div [innerHTML]="event.infor">
+                            </div>
+                        </blockquote>
+                    <p *ngIf="event.photo">
+                        <img src="img/blog2.jpg" class="img-responsive" alt="Example blog post alt">
+                    </p>
+                  
+              </div>
+              <!-- /#post-content -->
+
+             
+              
+          </div>
+          <!-- /.box -->
+      </div>
+      <!-- /#blog-post -->
+
+      <div class="col-md-4">
+          <!-- *** BLOG MENU ***
+_________________________________________________________ -->
+          <div class="panel panel-default sidebar-menu" *ngIf="event.admin">
+
+              <div class="panel-heading">
+                  <h3 class="panel-title">Admin</h3>
+              </div>
+
+              <div class="panel-body">
+
+                  <ul class="nav nav-pills nav-stacked">
+                      <li class="active">
+                          <a href="blog.html">Update Information Event</a>
+                      </li>
+                      <li>
+                          <a href="blog.html">Manage Member Join Event</a>
+                      </li>
+                  </ul>
+              </div>
+
+          </div>
+
+          <div class="panel panel-default sidebar-menu">
+                
+                              <div class="panel-heading">
+                                  <h3 class="panel-title">Event</h3>
+                              </div>
+                
+                              <div class="panel-body">
+                
+                                  <ul class="nav nav-pills nav-stacked">
+                                      <li class="active">
+                                          <a>Name</a>
+                                          <ul>
+                                                <li><a>{{event.name}}</a>
+                                                </li>
+                                            </ul>
+                                      </li>
+                                      <li class="active">
+                                          <a>Quantity</a>
+                                          <ul>
+                                                <li><a >{{event.quantity}}</a>
+                                                </li>
+                                            </ul>
+                                      </li>
+                                      <li class="active">
+                                          <a>Time</a>
+                                          <ul>
+                                                <li><a >{{event.time | date: 'yyyy-MM-dd'}}</a>
+                                                </li>
+                                            </ul>
+                                      </li>
+                                      <li class="active">
+                                          <a>Location</a>
+                                          <ul>
+                                                <li><a >{{event.location}}</a>
+                                                </li>
+                                            </ul>
+                                      </li>
+                                      <li class="active">
+                                          <a>Registration deadline</a>
+                                          <ul>
+                                                <li><a>{{event.registration_deadline | date: 'yyyy-MM-dd'}}</a>
+                                                </li>
+                                            </ul>
+                                      </li>
+                                  </ul>
+                              </div>
+                
+                          </div>
+          <!-- /.col-md-3 -->
+
+          <!-- *** BLOG MENU END *** -->
+
+          <div class="banner">
+              <a href="#">
+                  <img src="img/banner.jpg" alt="sales 2014" class="img-responsive">
+              </a>
+          </div>
+      </div>
+
+
+  </div>
+  <!-- /.container -->
+</div>

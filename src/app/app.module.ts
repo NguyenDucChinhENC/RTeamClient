@@ -83,6 +83,7 @@ import { MatDialogModule } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SignUpComponent } from './start-page/sign-up/sign-up.component';
 import { EditorComponent } from './helpers/editor/editor.component';
+import { ShowEventComponent } from './event/show-event/show-event.component';
 
 @NgModule({
   declarations: [
@@ -104,7 +105,8 @@ import { EditorComponent } from './helpers/editor/editor.component';
     EditEventComponent,
     DialogDeleteEvent,
     SignUpComponent,
-    EditorComponent
+    EditorComponent,
+    ShowEventComponent
   ],
   imports: [
     BrowserModule,
