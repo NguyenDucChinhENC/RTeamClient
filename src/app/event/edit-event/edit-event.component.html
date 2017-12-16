@@ -1,122 +1,165 @@
-<br>
-<div class="col-md-10">
-   <div class="card cover">
-      <br><h4 class="title">Edit Event</h4><hr>
-      <div class="row">
-        <div class="col-md-10">
-            <div class="alert alert-danger fade in" *ngFor="let error of error_messege">
-                <strong>Error!</strong> {{error}}.
-            </div>
-            <div class="alert alert-info fade in" *ngFor="let error of messege">
-                <strong>Success!</strong> {{error}}.
-            </div>
+
+
+
+<div id="content">
+    <div class="container">
+  
+        <div class="col-sm-12">
+  
+            <ul class="breadcrumb">
+  
+                <li><a href="index.html">Home</a>
+                </li>
+                <li><a [routerLink]="['/groups']">Groups</a>
+                </li>
+            </ul>
         </div>
-         <div class="col-md-10">
-            <form #editNameForm = "ngForm" (ngSubmit)="onUpdateButton(editNameForm.value, editNameForm.value.event.name)">
-               <div ngModelGroup = "event">
-                  <div class="col-md-2">
-                     <label>Name</label>
+  
+        <div class="col-sm-7" id="blog-post">
+  
+  
+            <div class="box">
+                <br><h4 class="title">Edit Event</h4><hr>
+                <div class="row">
+                  <div class="col-md-11">
+                      <div class="alert alert-danger fade in" *ngFor="let error of error_messege">
+                          <strong>Error!</strong> {{error}}.
+                      </div>
+                      <div class="alert alert-info fade in" *ngFor="let error of messege">
+                          <strong>Success!</strong> {{error}}.
+                      </div>
                   </div>
-                  <div class="col-md-9">
-                     <div class="form-group">
-                        <input type="text" name="name" class="form-control" value="{{event.name}}" ngModel required/>
-                     </div>
-                  </div>
-                  <div class="col-md-1">
-                     <button type="submit" class="btn btn-primary">update</button>
-                  </div>
-               </div>
-            </form>
-         </div>
-         <div class="col-md-10">
-            <form #editQuantityForm = "ngForm">
-               <div ngModelGroup = "event">
-                  <div class="col-md-2">
-                     <label>Quantity</label>
-                  </div>
-                  <div class="col-md-9">
-                     <div class="form-group">
-                        <input type="text" name="quantity" value="{{event.quantity}}" class="form-control" ngModel/>
-                     </div>
-                  </div>
-                  <div class="col-md-1">
-                     <button type="button" class="btn btn-primary" (click)="onUpdateButton(editQuantityForm.value, editQuantityForm.value.event.quantity)">update</button>
-                  </div>
-               </div>
-            </form>
-         </div>
-         <div class="col-md-10">
-            <form #editLocationForm = "ngForm">
-               <div ngModelGroup = "event">
-                  <div class="col-md-2">
-                     <label>Location</label>
-                  </div>
-                  <div class="col-md-9">
-                     <div class="form-group">
-                        <input type="text" name="location" value="{{event.location}}" class="form-control" ngModel/>
-                     </div>
-                  </div>
-                  <div class="col-md-1">
-                     <button type="button" class="btn btn-primary" (click)="onUpdateButton(editLocationForm.value, editLocationForm.value.event.location)">update</button>
-                  </div>
-               </div>
-            </form>
-         </div>
-         <div class="col-md-10">
-            <form #editTimeForm = "ngForm">
-               <div ngModelGroup = "event">
-                  <div class="col-md-2">
-                     <label>Time</label>
-                  </div>
-                  <div class="col-md-9">
-                     <div class="form-group">
-                        <input type="date" name="time" class="form-control" ngModel/>
-                     </div>
-                  </div>
-                  <div class="col-md-1">
-                     <button type="button" class="btn btn-primary" (click)="onUpdateButton(editTimeForm.value, editTimeForm.value.event.time)">update</button>
-                  </div>
-               </div>
-            </form>
-         </div>
-         <div class="col-md-10">
-            <form #editDeadlineForm = "ngForm">
-               <div ngModelGroup = "event">
-                  <div class="col-md-2">
-                     <label>Registrantion Deadline</label>
-                  </div>
-                  <div class="col-md-9">
-                     <div class="form-group">
-                        <input type="date" name="registration_deadline" class="form-control" ngModel/>
-                     </div>
-                  </div>
-                  <div class="col-md-1">
-                     <button type="button" class="btn btn-primary" (click)="onUpdateButton(editDeadlineForm.value, editDeadlineForm.value.event.registration_deadline)">update</button>
-                  </div>
-               </div>
-            </form>
-         </div>
-      </div>
-   </div>
-</div>
-<div class="col-md-10">
-        <!-- <div class="col-md-6"> -->
-        <div class="box box-danger">
-          <div class="box-header with-border">
-            <h5 class="box-title">More Actions</h5>
-          </div>
-          <div class="box-body category box-title">
-                <div class="col-md-10">
-            <div class="pull-right">
-              <div class="row">
-                  <div class="col-md-12">
-                      <a class="btn small-box bg-red" (click)="openDialog()">Delete</a>  
-                  </div>
-              </div>
-            </div>
-                <div class="member-waiting"><h5>Delete Group</h5></div>
+                   <div class="col-md-10">
+                      <form #editNameForm = "ngForm" (ngSubmit)="onUpdateButton(editNameForm.value, editNameForm.value.event.name)">
+                         <div ngModelGroup = "event">
+                            <div class="col-md-2">
+                               <label>Name</label>
+                            </div>
+                            <div class="col-md-9">
+                               <div class="form-group">
+                                  <input type="text" name="name" class="form-control" value="{{event.name}}" ngModel required/>
+                               </div>
+                            </div>
+                            <div class="col-md-1">
+                               <button type="submit" class="btn btn-primary">update</button>
+                            </div>
+                         </div>
+                      </form>
+                   </div>
+                   <div class="col-md-10">
+                      <form #editQuantityForm = "ngForm">
+                         <div ngModelGroup = "event">
+                            <div class="col-md-2">
+                               <label>Quantity</label>
+                            </div>
+                            <div class="col-md-9">
+                               <div class="form-group">
+                                  <input type="text" name="quantity" value="{{event.quantity}}" class="form-control" ngModel/>
+                               </div>
+                            </div>
+                            <div class="col-md-1">
+                               <button type="button" class="btn btn-primary" (click)="onUpdateButton(editQuantityForm.value, editQuantityForm.value.event.quantity)">update</button>
+                            </div>
+                         </div>
+                      </form>
+                   </div>
+                   <div class="col-md-10">
+                      <form #editLocationForm = "ngForm">
+                         <div ngModelGroup = "event">
+                            <div class="col-md-2">
+                               <label>Location</label>
+                            </div>
+                            <div class="col-md-9">
+                               <div class="form-group">
+                                  <input type="text" name="location" value="{{event.location}}" class="form-control" ngModel/>
+                               </div>
+                            </div>
+                            <div class="col-md-1">
+                               <button type="button" class="btn btn-primary" (click)="onUpdateButton(editLocationForm.value, editLocationForm.value.event.location)">update</button>
+                            </div>
+                         </div>
+                      </form>
+                   </div>
+                   <div class="col-md-10">
+                      <form #editTimeForm = "ngForm">
+                         <div ngModelGroup = "event">
+                            <div class="col-md-2">
+                               <label>Time</label>
+                            </div>
+                            <div class="col-md-9">
+                               <div class="form-group">
+                                  <input type="date" name="time" class="form-control" ngModel/>
+                               </div>
+                            </div>
+                            <div class="col-md-1">
+                               <button type="button" class="btn btn-primary" (click)="onUpdateButton(editTimeForm.value, editTimeForm.value.event.time)">update</button>
+                            </div>
+                         </div>
+                      </form>
+                   </div>
+                   <div class="col-md-10">
+                      <form #editDeadlineForm = "ngForm">
+                         <div ngModelGroup = "event">
+                            <div class="col-md-2">
+                               <label>Registrantion Deadline</label>
+                            </div>
+                            <div class="col-md-9">
+                               <div class="form-group">
+                                  <input type="date" name="registration_deadline" class="form-control" ngModel/>
+                               </div>
+                            </div>
+                            <div class="col-md-1">
+                               <button type="button" class="btn btn-primary" (click)="onUpdateButton(editDeadlineForm.value, editDeadlineForm.value.event.registration_deadline)">update</button>
+                            </div>
+                         </div>
+                      </form>
+                   </div>
+                   <div class="col-md-10">
+                    <form #editDeadlineForm = "ngForm">
+                          <div class="col-md-9">
+                             <div class="form-group">
+                                <input type="date" value="{{event.infor}}" name="registration_deadline" class="form-control" ngModel/>
+                             </div>
+                          </div>
+                    </form>
+                 </div>
+                   <div class="col-md-11" style="margin: 10px;">
+                        <form #editInfoForm = "ngForm" (ngSubmit)="onUpdateInfor()">
+                        <text-editor [elementId]="'my-editor-id'" [value]="infor" (onEditorKeyup)="onInfor($event)">
+                        </text-editor>
+                        <button type="submit" class="btn btn-primary">pdate</button>
+                        </form>
                 </div>
-          </div>
+                
+                </div>
+  
+               
+                
+            </div>
+            <!-- /.box -->
         </div>
-        <!-- </div> -->
-</div>
+        <!-- /#blog-post -->
+  
+        <div class="col-md-5">
+            <!-- *** BLOG MENU ***
+  _________________________________________________________ -->
+  <div class="box box-danger">
+    <div class="box-header with-border">
+      <h5 class="box-title">More Actions</h5>
+    </div>
+    <div class="box-body category box-title">
+          <div class="col-md-12">
+      <div class="pull-right">
+        <div class="row">
+            <div class="col-md-12">
+                <a class="btn small-box bg-red" (click)="openDialog()">Delete</a>  
+            </div>
+        </div>
+      </div>
+          <div class="member-waiting"><h5>Delete Event</h5></div>
+          </div>
+    </div>
+  </div>
+    </div>
+    <!-- /.container -->
+  </div>

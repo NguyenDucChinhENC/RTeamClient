@@ -275,7 +275,7 @@
                       background-repeat: no-repeat; max-height: 250px;">
                         </div>
                               </div>
-                              <p class="intro">{{event.infor}}</p>
+                              <p class="intro"[innerHTML]="event.infor"></p>
                               <p class="read-more"><a   class="btn btn-primary" [routerLink]="['/events', event.id]">Continue reading</a>
                               </p>
                           </div>
