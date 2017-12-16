@@ -15,6 +15,8 @@ export class EditEventComponent implements OnInit {
   event: any = {};
   messege: any;
   error_messege: any;
+  infor: any = "";
+  value_infor_change: any = "";
 
   constructor(private route: ActivatedRoute, private eventService: EventService,
     public dialog: MatDialog) { }
@@ -33,7 +35,8 @@ export class EditEventComponent implements OnInit {
 
   onGetEventSuccess(response){
     console.log("nhihi");
-    this.event = response.data.event
+    this.event = response.data.event;
+    this.infor = response.data.event.infor
   }
 
   onGetEventError(response){
@@ -49,6 +52,20 @@ export class EditEventComponent implements OnInit {
       this.eventService.updateEvent(this.current_user.authentication_token, this.id_event, event).
        subscribe(response => this.onUpdateSuccess(response),
         response => this.onUpdateError(response))
+    }
+  }
+
+  onUpdateInfor(){
+    console.log(this.value_infor_change);
+    if (this.value_infor_change !== ""){
+      const param_event = {
+        event: {
+          infor: this.value_infor_change
+        }
+      };
+      this.eventService.updateEvent(this.current_user.authentication_token, this.id_event, param_event).
+      subscribe(response => this.onUpdateSuccess(response),
+       response => this.onUpdateError(response))
     }
   }
 
@@ -74,6 +91,11 @@ export class EditEventComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
     });
+  }
+
+  onInfor(value: any){
+    console.log(value);
+    this.value_infor_change = value;
   }
 
 }
