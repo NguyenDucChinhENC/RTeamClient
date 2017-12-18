@@ -21,6 +21,7 @@ import { LoggedInGuard } from './logged-in.guard';
 import { EditEventComponent } from './event/edit-event/edit-event.component';
 import { SignUpComponent } from './start-page/sign-up/sign-up.component';
 import { ShowEventComponent } from './event/show-event/show-event.component';
+import { ManageEventComponent } from './event/manage-event/manage-event.component';
 
 const routes: Routes =[
     { path: 'home',      component: HomeComponent,
@@ -43,7 +44,8 @@ const routes: Routes =[
     { path: 'groups/admin/:id', component: GroupManageComponent},
     { path: 'groups/:id/event/new', component: NewEventComponent},
     { path: 'events/edit/:id', component: EditEventComponent},
-    { path: 'events/:id', component: ShowEventComponent}
+    { path: 'events/:id', component: ShowEventComponent},
+    { path: 'events/admin/:id', component: ManageEventComponent}
 ];
 
 @NgModule({

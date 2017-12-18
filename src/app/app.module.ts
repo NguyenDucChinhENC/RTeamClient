@@ -84,6 +84,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SignUpComponent } from './start-page/sign-up/sign-up.component';
 import { EditorComponent } from './helpers/editor/editor.component';
 import { ShowEventComponent } from './event/show-event/show-event.component';
+import { ManageEventComponent } from './event/manage-event/manage-event.component';
 
 @NgModule({
   declarations: [
@@ -106,7 +107,8 @@ import { ShowEventComponent } from './event/show-event/show-event.component';
     DialogDeleteEvent,
     SignUpComponent,
     EditorComponent,
-    ShowEventComponent
+    ShowEventComponent,
+    ManageEventComponent
   ],
   imports: [
     BrowserModule,

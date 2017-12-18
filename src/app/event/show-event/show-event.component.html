@@ -44,6 +44,22 @@
       <!-- /#blog-post -->
 
       <div class="col-md-4">
+            <div class="panel panel-default sidebar-menu">
+                    
+                                  <div class="panel-heading">
+                                      <h3 class="panel-title">{{member_button.title}}</h3>
+                                  </div>
+                    
+                                  <div class="panel-body">
+                    
+                                        <div class="row">
+                                                <div class="col-md-12">
+                                                    <a class="btn btn-default btn-block" (click)="onButtonJoin()">{{member_button.action}}</a>  
+                                                </div>
+                                            </div>
+                                          </div>
+                                  </div>
+                    
           <!-- *** BLOG MENU ***
 _________________________________________________________ -->
           <div class="panel panel-default sidebar-menu" *ngIf="event.admin">
@@ -59,7 +75,7 @@ _________________________________________________________ -->
                           <a href="blog.html">Update Information Event</a>
                       </li>
                       <li>
-                          <a href="blog.html">Manage Member Join Event</a>
+                          <a [routerLink]="['/events/admin', event.id]">Manage Member Join Event</a>
                       </li>
                   </ul>
               </div>
