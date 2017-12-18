@@ -1,3 +1,91 @@
+<div id="content">
+    <div class="container">
+      <div class="col-md-12">
+          <!-- *** MENUS AND FILTERS ***
+      _________________________________________________________ -->
+          <div class="panel panel-default sidebar-menu">
+
+              <div class="panel-heading">
+                  <h3 class="panel-title">Groups</h3>
+              </div>
+
+              <div class="panel-body">
+                  <ul class="nav nav-pills nav-stacked category-menu">
+                      <li class="active">
+                          <div class="main-content">
+                          <div class="container-fluid">
+                            <div class="row">
+                              <div class="col-md-12">
+                                <div class="card">
+                                  <div class="header">
+                                    <h4 class="title">New Event</h4>
+                                    <div class="alert alert-danger fade in" *ngFor="let error of error_message">
+                                        <a href="#" class="close" data-dismiss="alert">&times;</a>
+                                        <strong>Error!</strong> {{error}}.
+                                    </div>
+                                  </div>
+                                  <div class="content">
+                                    <form #newEventForm = "ngForm">
+                                      <div ngModelGroup = "event">
+                                      <div class="row">
+                                        <div class="col-md-12">
+                                          <div class="form-group">
+                                            <label>Name Event</label>
+                                            <input type="text" name="name" class="form-control" ngModel/></div>
+                                        </div>
+                                      </div>
+                                      <div class="row">
+                                        <div class="col-md-6">
+                                          <div class="form-group">
+                                            <label>Time</label>
+                                            <input type="date" name="time" class="form-control" ngModel/></div>
+                                        </div>
+                                        <div class="col-md-6">
+                                          <div class="form-group">
+                                            <label>Registration Deadline</label>
+                                            <input type="date" name="registration_deadline" class="form-control" ngModel/></div>
+                                        </div>
+                                      </div>
+                                      <div class="row">
+                                        <div class="col-md-6">
+                                          <div class="form-group">
+                                            <label>Quantity</label>
+                                            <input type="number" name="quantity" class="form-control" ngModel/></div>
+                                        </div>
+                                      </div>
+                                      <div class="row">
+                                          <div class="col-md-12">
+                                            <div class="form-group">
+                                              <label>More information</label>
+                                              <textarea type="text" name="infor" rows="5" class="form-control" ngModel></textarea></div>
+                                          </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                              <div class="form-group">
+                                                <label>Picture</label>
+                                                <input type="file" class="choose-file" id="imageInput" (change)="onChange($event)"></div>
+                                            </div>
+                                          </div>
+                                      <button type="submit" class="btn btn-info btn-fill pull-right" (click)="onClickSubmitNewEvent(newEventForm.value.event)">Update Profile</button>
+                                      <div class="clearfix"></div>
+                                      </div>
+                                    </form>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                  </ul>
+              </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+<!-- 
 <div class="main-content">
     <div class="container-fluid">
       <div class="row">
@@ -19,7 +107,7 @@
                       <label>Name Event</label>
                       <input type="text" name="name" class="form-control" ngModel/></div>
                   </div>
-                </div>
+                </div> -->
                 <!-- <div class="row">
                   <div class="col-md-5">
                     <div class="form-group">
@@ -39,7 +127,7 @@
                       <div class="form-control">{{currentUser.id_number}}</div> </div>
                   </div>
                 </div> -->
-                <div class="row">
+                <!-- <div class="row">
                   <div class="col-md-6">
                     <div class="form-group">
                       <label>Time</label>
@@ -64,7 +152,7 @@
                         <label>More information</label>
                         <textarea type="text" name="infor" rows="5" class="form-control" ngModel></textarea></div>
                     </div>
-                  </div>
+                  </div> -->
                 <!-- <div class="row">
                   <div class="col-md-4">
                     <div class="form-group">
@@ -90,13 +178,13 @@
                     </div>
                   </div>
                 </div> -->
-                <button type="submit" class="btn btn-info btn-fill pull-right" (click)="onClickSubmitNewEvent(newEventForm.value.event)">Update Profile</button>
+                <!-- <button type="submit" class="btn btn-info btn-fill pull-right" (click)="onClickSubmitNewEvent(newEventForm.value.event)">Update Profile</button>
                 <div class="clearfix"></div>
                 </div>
               </form>
             </div>
           </div>
-        </div>
+        </div> -->
         <!-- <div class="col-md-4">
           <div class="card card-user">
             <div class="image"> <img src="https://ununsplash.imgix.net/photo-1431578500526-4d9613015464?fit=crop&fm=jpg&h=300&q=75&w=400" alt="..." /> </div>
@@ -119,6 +207,6 @@
             </div>
           </div>
         </div> -->
-      </div>
+      <!-- </div>
     </div>
-  </div>
+  </div> -->

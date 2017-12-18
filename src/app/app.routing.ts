@@ -42,7 +42,7 @@ const routes: Routes =[
     { path: 'groups/:id', component: GroupThumbnailComponent},
     { path: 'group/new', component: NewGroupComponent },
     { path: 'groups/admin/:id', component: GroupManageComponent},
-    { path: 'groups/:id/event/new', component: NewEventComponent},
+    { path: 'groups/event/new/:id', component: NewEventComponent},
     { path: 'events/edit/:id', component: EditEventComponent},
     { path: 'events/:id', component: ShowEventComponent},
     { path: 'events/admin/:id', component: ManageEventComponent}

@@ -36,6 +36,7 @@ export class GroupThumbnailComponent implements OnInit {
   id_member_group = -1;
   cover: any;
   events: any = [];
+  link_cloudianry :any = "http://res-4.cloudinary.com/rteam/"
 
   constructor(
     private groupSevice: GroupService,
