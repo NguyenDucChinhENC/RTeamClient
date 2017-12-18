@@ -13,7 +13,8 @@ export class EventService {
     this.apiURL = URL + 'api/events';
   }
 
-  newEvent(token: string, event: any, id_group: any): Observable<any>{
+  newEvent(token: string, event: any, event_photo:any, id_group: any): Observable<any>{
+    event.photo = event_photo.photo;
     const headers: any = {'RT-AUTH-TOKEN': token};
     const option = new RequestOptions({headers: headers});
     console.log({event ,  id_group: id_group});

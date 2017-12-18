@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { EventService } from '../event.service';
 import { MemberButton } from '../../group/group-thumbnail/group-thumbnail.component';
+import { IMG_URL } from '../../constants';
 
 declare interface ButtonMember {
   status: boolean;
@@ -28,6 +29,7 @@ export class ShowEventComponent implements OnInit {
   event: any= {};
   status_join: any;
   member_button: any={};
+  link_photo: any ={};
 
   constructor( private eventService: EventService, private route: ActivatedRoute) { }
 
@@ -45,6 +47,7 @@ export class ShowEventComponent implements OnInit {
   onGetEventSuccess(response){
     this.event = response.data.event
     this.owner = this.event.owner
+    this.link_photo = IMG_URL + this.event.photo;
     if (this.event.member){
       this.member_button = buttonMember.filter(buttonMember => buttonMember)[0];
     }else{

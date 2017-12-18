@@ -249,7 +249,7 @@
                   <div class="col-md-9">
                       <div class="box">
                           <h2>{{info_group.name}}</h2>
-                          <p class="buttons"><a href="index.html" class="btn btn-primary"><i class="fa fa-plus"></i>Create new Group</a>
+                          <p class="buttons"><a [routerLink]="['/groups/event/new',info_group.id]" class="btn btn-primary"><i class="fa fa-plus"></i>Create new event</a>
                             <text-editor
                             [elementId]="'my-editor-id'"
                             (onEditorKeyup)="onBodyTextEditorKeyup($event)"
@@ -271,7 +271,7 @@
                                   <a><i class="fa fa-comment-o"></i> 8 Comments</a>
                               </p>
                               <div class="image">
-                                  <div class="background" [style.background-image]="getBackground(cover)" style=" background-size: cover;
+                                  <div class="background" [style.background-image]="getBackground(link_cloudianry + event.photo)" style=" background-size: cover;
                       background-repeat: no-repeat; max-height: 250px;">
                         </div>
                               </div>
