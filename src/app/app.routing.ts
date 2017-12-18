@@ -22,6 +22,7 @@ import { EditEventComponent } from './event/edit-event/edit-event.component';
 import { SignUpComponent } from './start-page/sign-up/sign-up.component';
 import { ShowEventComponent } from './event/show-event/show-event.component';
 import { ManageEventComponent } from './event/manage-event/manage-event.component';
+import { SearchComponent } from './search/search.component';
 
 const routes: Routes =[
     { path: 'home',      component: HomeComponent,
@@ -45,7 +46,8 @@ const routes: Routes =[
     { path: 'groups/event/new/:id', component: NewEventComponent},
     { path: 'events/edit/:id', component: EditEventComponent},
     { path: 'events/:id', component: ShowEventComponent},
-    { path: 'events/admin/:id', component: ManageEventComponent}
+    { path: 'events/admin/:id', component: ManageEventComponent},
+    { path: 'search', component: SearchComponent}
 ];
 
 @NgModule({

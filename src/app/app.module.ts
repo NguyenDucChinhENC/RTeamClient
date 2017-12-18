@@ -85,6 +85,7 @@ import { SignUpComponent } from './start-page/sign-up/sign-up.component';
 import { EditorComponent } from './helpers/editor/editor.component';
 import { ShowEventComponent } from './event/show-event/show-event.component';
 import { ManageEventComponent } from './event/manage-event/manage-event.component';
+import { SearchComponent } from './search/search.component';
 
 @NgModule({
   declarations: [
@@ -108,7 +109,8 @@ import { ManageEventComponent } from './event/manage-event/manage-event.componen
     SignUpComponent,
     EditorComponent,
     ShowEventComponent,
-    ManageEventComponent
+    ManageEventComponent,
+    SearchComponent
   ],
   imports: [
     BrowserModule,
