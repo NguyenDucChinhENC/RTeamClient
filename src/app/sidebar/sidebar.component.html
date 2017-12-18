@@ -11,10 +11,9 @@
                         <span class="sr-only">Toggle navigation</span>
                         <i class="fa fa-align-justify"></i>
                     </button>
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#search">
-                        <span class="sr-only">Toggle search</span>
+                    <!-- <button type="button" class="navbar-toggle">
                         <i class="fa fa-search"></i>
-                    </button>
+                    </button> -->
                     <a class="btn btn-default navbar-toggle" routerLink="/user/{{User.id}}" >
                         <i class="fa fa-shopping-cart"></i>  <span class="hidden-xs">{{User.name}}</span>
                     </a>
@@ -270,7 +269,7 @@
                 <!--/.nav-collapse -->
 
                 <div class="navbar-collapse collapse right" id="search-not-mobile">
-                    <button type="button" class="btn navbar-btn btn-primary" data-toggle="collapse" data-target="#search">
+                    <button [routerLink]="['/search']" type="button" class="btn navbar-btn btn-primary">
                         <span class="sr-only">Toggle search</span>
                         <i class="fa fa-search"></i>
                     </button>
