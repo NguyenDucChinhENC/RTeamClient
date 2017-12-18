@@ -32,4 +32,22 @@ export class EventService {
     const option = new RequestOptions({headers: headers});
     return this.http.patch(this.apiURL + "/" + id_event, value, option).map(response => response.json())
   }
+
+  joinEvent(token: string, id_event: any): Observable<any>{
+    const headers: any = {'RT-AUTH-TOKEN': token};
+    const option = new RequestOptions({headers: headers});
+    return this.http.post(URL +'api/member_events', {id: id_event}, option).map(response => response.json())
+  }
+
+  cancelJoinEvent(token: string, id_member: any): Observable<any>{
+    const headers: any = {'RT-AUTH-TOKEN': token};
+    const option = new RequestOptions({headers: headers});
+    return this.http.delete(URL + 'api/member_events/' + id_member, option).map(response => response.json())
+  }
+
+  addAdminEvent(token: string, event_id: any, user_id: any):Observable<any>{
+    const headers: any = {'RT-AUTH-TOKEN': token};
+    const option = new RequestOptions({headers: headers});
+    return this.http.post(URL + 'api/admin_events', {event_id: event_id, user_id: user_id}, option).map(response => response.json())
+  }
 }
