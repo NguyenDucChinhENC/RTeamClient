@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { GroupService } from '../group.service'
+import { GroupService } from '../group.service';
+import { CanActivate, Router } from '@angular/router';
 
 @Component({
   selector: 'app-new-group',
@@ -9,7 +10,7 @@ import { GroupService } from '../group.service'
 })
 export class NewGroupComponent implements OnInit {
 
-  constructor(private groupService: GroupService) { }
+  constructor(private groupService: GroupService, private router: Router) { }
 
   ngOnInit() {
     $(document).ready(function () {
@@ -62,6 +63,7 @@ export class NewGroupComponent implements OnInit {
 
   success(response){
     console.log(response)
+    this.router.navigate(['/groups']);
   }
 
   error(response){

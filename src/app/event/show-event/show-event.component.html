@@ -32,7 +32,17 @@
                     <p *ngIf="event.photo">
                         <img src="{{link_photo}}" class="img-responsive" alt="Example blog post alt">
                     </p>
-                  
+                
+                    <share-container
+                        direction="horizontal"
+                        addedText="your creation"
+                        [expandable]="true"
+                        [textEnabled]="false"
+                        [properties]="{title:'my title', url:'tinhte.vn', description:'my desc', img:' an image', via:'Ced_VDB', hashtags:'someHashTag'}"
+                        [platforms]="['twitter','facebook','mail']">
+                    </share-container>
+                    
+
               </div>
               <!-- /#post-content -->
 
@@ -72,7 +82,7 @@ _________________________________________________________ -->
 
                   <ul class="nav nav-pills nav-stacked">
                       <li class="active">
-                          <a href="blog.html">Update Information Event</a>
+                          <a [routerLink]="['/events/edit',event.id]">Update Information Event</a>
                       </li>
                       <li>
                           <a [routerLink]="['/events/admin', event.id]">Manage Member Join Event</a>
@@ -81,6 +91,22 @@ _________________________________________________________ -->
               </div>
 
           </div>
+          <div class="panel panel-default sidebar-menu">
+
+            <div class="panel-heading">
+                <h3 class="panel-title">Members</h3>
+            </div>
+
+            <div class="panel-body">
+
+                <ul class="nav nav-pills nav-stacked">
+                    <li class="active">
+                        <a [routerLink]="['/events/list',event.id]">List</a>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
 
           <div class="panel panel-default sidebar-menu">
                 
@@ -134,11 +160,6 @@ _________________________________________________________ -->
 
           <!-- *** BLOG MENU END *** -->
 
-          <div class="banner">
-              <a href="#">
-                  <img src="img/banner.jpg" alt="sales 2014" class="img-responsive">
-              </a>
-          </div>
       </div>
 
 

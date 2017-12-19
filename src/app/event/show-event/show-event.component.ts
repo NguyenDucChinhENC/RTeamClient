@@ -30,10 +30,12 @@ export class ShowEventComponent implements OnInit {
   status_join: any;
   member_button: any={};
   link_photo: any ={};
+  link_comment: any ={};
 
   constructor( private eventService: EventService, private route: ActivatedRoute) { }
 
   ngOnInit() {
+    this.link_comment = 'https://rteam.com/';
     this.id_event = +this.route.snapshot.params['id'];
     this.current_user = JSON.parse(localStorage.getItem('currentUser'));
     this.getEventInfo();
@@ -48,6 +50,7 @@ export class ShowEventComponent implements OnInit {
     this.event = response.data.event
     this.owner = this.event.owner
     this.link_photo = IMG_URL + this.event.photo;
+    this.link_comment = 'https://rteam.com/' + this.event.id
     if (this.event.member){
       this.member_button = buttonMember.filter(buttonMember => buttonMember)[0];
     }else{
