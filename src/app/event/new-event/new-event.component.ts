@@ -14,7 +14,7 @@ export class NewEventComponent implements OnInit {
   error_message: any;
   events_photo: any ={};
 
-  constructor(private eventSevice: EventService, private router: ActivatedRoute) { }
+  constructor(private eventSevice: EventService, private router: ActivatedRoute, private route: Router) { }
 
   ngOnInit() {
     this.id_group = +this.router.snapshot.params['id'];
@@ -31,6 +31,7 @@ export class NewEventComponent implements OnInit {
 
   onSuccessCreateEvent(response){
     console.log('hihi')
+    this.route.navigate(['/groups',this.id_group]);
   }
 
   onErrorCreateEvent(response){

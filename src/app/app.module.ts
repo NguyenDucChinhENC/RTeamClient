@@ -75,6 +75,7 @@ import { StartPageComponent } from './start-page/start-page.component';
 import { GroupManageComponent } from './group/group-manage/group-manage.component';
 import { NewGroupComponent } from './group/new-group/new-group.component';
 import { LoggedInGuard } from './logged-in.guard';
+import { NotLoggedInGuard } from './not-logged-in.guard';
 import { NewEventComponent } from './event/new-event/new-event.component';
 import { DatepickerModule } from 'angular-mat-datepicker';
 import { EditEventComponent } from './event/edit-event/edit-event.component';
@@ -86,6 +87,9 @@ import { EditorComponent } from './helpers/editor/editor.component';
 import { ShowEventComponent } from './event/show-event/show-event.component';
 import { ManageEventComponent } from './event/manage-event/manage-event.component';
 import { SearchComponent } from './search/search.component';
+import { ListMemberComponent } from './event/list-member/list-member.component';
+import { FacebookModule } from 'ngx-facebook';
+import {ShareModule} from 'ng2share/share.module'
 
 @NgModule({
   declarations: [
@@ -110,7 +114,8 @@ import { SearchComponent } from './search/search.component';
     EditorComponent,
     ShowEventComponent,
     ManageEventComponent,
-    SearchComponent
+    SearchComponent,
+    ListMemberComponent
   ],
   imports: [
     BrowserModule,
@@ -124,12 +129,14 @@ import { SearchComponent } from './search/search.component';
     AppRoutingModule,
     LbdModule,
     DatepickerModule,
-    MatDialogModule
+    MatDialogModule,
+    FacebookModule.forRoot(),
+    ShareModule
   ],
   entryComponents: [
     DialogDeleteEvent
   ],
-  providers: [LoggedInGuard],
+  providers: [LoggedInGuard, NotLoggedInGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

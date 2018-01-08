@@ -31,4 +31,11 @@ export class ProfileService {
     const options = new RequestOptions({headers: headers});
     return this.http.patch(apiurl, ava, options);
   }
+
+  logout(token: string): Observable<any> {
+    const headers: any = {'RT-AUTH-TOKEN': token};  
+    const option = new RequestOptions({headers: headers})
+    console.log(option);
+    return this.http.delete(URL + 'api/sign_out', option);
+  }
 }

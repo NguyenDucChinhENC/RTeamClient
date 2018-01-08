@@ -92,11 +92,28 @@ export class UserComponent implements OnInit {
   }
 
   onChangeSuccess(response, image) {
-
+    this.router.navigate(['/user', this.user_id]);
   }
 
   onChangeError() {
   
+  }
+
+  onClickLogout(){
+    this.profileService.logout(JSON.parse(localStorage.currentUser).authentication_token).subscribe(
+      response => this.onNext(response),
+      response => this.onErrorLogout(response)
+    )
+  }
+
+  onNext(response){
+    localStorage.removeItem('currentUser');
+    window.location.reload()
+  }
+
+  onErrorLogout(response){
+    localStorage.removeItem('currentUser');
+    window.location.reload()
   }
 
 }

@@ -1,0 +1,90 @@
+<div id="content">
+  <div class="container">
+        <div class="col-sm-12">
+                
+                          <ul class="breadcrumb">
+                
+                              <li><a [routerLink]="['']">Home</a>
+                              </li>
+                              <li><a [routerLink]="['/groups']">Groups</a>
+                              </li>
+                              <li><a [routerLink]="['/groups/',owner.id]">{{owner.name}}</a>
+                              </li>
+                              <li><a [routerLink]="['/events',id_event]">{{event.name}}</a></li>
+                          </ul>
+                      </div>
+    <div id="print-section">
+        <div class="col-md-9" id="customer-orders">
+            <div class="box">
+                <h1>Admins</h1>
+      
+                <p class="lead" [routerLink]="['/events',id_event]">{{event.name}}</p>
+                <!-- <p class="text-muted">If you have any questions, please feel free to <a href="contact.html">contact us</a>, our customer service center is working for you 24/7.</p> -->
+      
+                <hr>
+      
+                <div class="table-responsive">
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Name</th>
+                                <th>Number Phone</th>
+                                <th>Birthday</th>
+                                <th>address</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor = "let member of event.list_admin; let i = index; trackBy: trackByFn">
+                                <th>{{i+1}}</th>
+                                <td>{{member.name}}</td>
+                                <td>{{member.number_phone}}</td>
+                                <td>{{member.birthday}}
+                                </td>
+                                <td>{{member.address}}
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    <div class="col-md-9" id="customer-orders">
+      <div class="box">
+          <h1>List Members</h1>
+
+          <p class="lead" [routerLink]="['/events',id_event]">{{event.name}}</p>
+          <!-- <p class="text-muted">If you have any questions, please feel free to <a href="contact.html">contact us</a>, our customer service center is working for you 24/7.</p> -->
+
+          <hr>
+
+          <div class="table-responsive">
+              <table class="table table-hover">
+                  <thead>
+                      <tr>
+                          <th>#</th>
+                          <th>Name</th>
+                          <th>Number Phone</th>
+                          <th>Birthday</th>
+                          <th>address</th>
+                      </tr>
+                  </thead>
+                  <tbody>
+                      <tr *ngFor = "let member of members; let i = index; trackBy: trackByFn">
+                          <th>{{i+1}}</th>
+                          <td>{{member.name}}</td>
+                          <td>{{member.number_phone}}</td>
+                          <td>{{member.birthday}}
+                          </td>
+                          <td>{{member.address}}
+                          </td>
+                      </tr>
+                  </tbody>
+              </table>
+          </div>
+      </div>
+  </div>
+  <button class="btn btn-primary btn-sm" (click)="print()">print</button>
+    </div>
+  </div>
+</div>

@@ -250,11 +250,6 @@
                       <div class="box">
                           <h2>{{info_group.name}}</h2>
                           <p class="buttons"><a [routerLink]="['/groups/event/new',info_group.id]" class="btn btn-primary"><i class="fa fa-plus"></i>Create new event</a>
-                            <text-editor
-                            [elementId]="'my-editor-id'"
-                            (onEditorKeyup)="onBodyTextEditorKeyup($event)"
-                            >
-                          </text-editor>
                           </p>
                       </div>
                       

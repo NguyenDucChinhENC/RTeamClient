@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { LoginService } from './login.service';
 import { NgForm } from '@angular/forms';
+import { CanActivate, Router } from '@angular/router';
 import * as $ from 'jquery';
 
 @Component({
@@ -14,7 +15,7 @@ export class StartPageComponent implements OnInit {
   private User: any = {};
   private User_info: any = {};
 
-  constructor(public loginService: LoginService) {
+  constructor(public loginService: LoginService, private router: Router) {
   }
 
   ngOnInit() {
@@ -36,11 +37,13 @@ export class StartPageComponent implements OnInit {
   }
 
   onNext(response) {
+    console.log(response)
     if (response.status === 200) {
       this.User = JSON.parse(response._body);
       this.User_info = this.User.data.user_info;
       localStorage.setItem('currentUser', JSON.stringify(this.User_info));
       window.location.reload();
+      this.router.navigate(['/']);
     }
   };
 
